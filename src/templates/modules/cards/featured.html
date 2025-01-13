@@ -1,0 +1,63 @@
+<section class="card-list card-list--featured module module__background theme__background--light" >
+    <div class="column column--narrow">
+
+        @@if(title){
+            <@@h class="module__heading u-h2">@@title</@@h>
+        }
+
+        <div class="module__text module__text--narrow">
+
+            @@if(copy){
+                @@copy
+            }
+
+            @@if(copy == ""){
+                @@include('../includes/wysiwig.html')
+            }
+        </div>
+    </div>
+
+    <div class="column">
+        <ul class="card-list__list">
+            @@include('card.html', {
+                "title" : "Activity or article heading",
+                "image" : "1.jpg",
+                "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                "date" : "4.08.23",
+                "time" : "",
+                "location" : "",
+                "class" : "",
+                "filters" : ""   
+            })
+
+            @@include('card.html', {
+                "title" : "Activity or article heading on two lines",
+                "image" : "2.jpg",
+                "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                "date" : "14.01.23",
+                "time" : "15:00",
+                "location" : "Suite Two",
+                "class" : "",
+                "filters" : ""   
+             })
+
+            @@include('card.html', {
+                "title" : "Activity or article heading",
+                "image" : "3.jpg",
+                "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                "date" : "14.01.23",
+                "time" : "20:00",
+                "location" : "Suite Two",
+                "class" : "",
+                "filters" : ""   
+            })
+        </ul>
+
+
+        @@if(button){
+            <div class="module__text button__container">
+                <a href="/pages/article.html" class="button">Button</a>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,49 @@
+/* Component
+   ========================================================================== */
+.callout {
+  @include critical {
+    .module__background {
+      @include px(padding, 40px 26px);
+
+      i-pp,
+      b-pp {
+        color: inherit;
+      }
+    }
+
+    &.theme__background--white.module .column {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Tablet and Desktop
+@include mq(tablet) {
+  @include critical {
+    .callout {
+      .module__background {
+        @include px(padding, 70px 64px);
+      }
+    }
+
+    .callout--center {
+      text-align: center;
+    }
+
+    .callout--left {
+      text-align: left;
+    }
+
+    .callout--right {
+      text-align: right;
+    }
+  }
+}
+
+//Mobile
+@include mq(0, tablet) {
+}

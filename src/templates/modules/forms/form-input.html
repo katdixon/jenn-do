@@ -1,0 +1,15 @@
+<div class="validate @@class">
+    <label for="@@id" class="form__label">
+        <span class="form__labelspan">@@label</span>
+        @@if(type == "email"){
+            <input type="@@type" id="@@id" name="@@id" @@required data-val-required="*Please enter your email address" data-val-email="@@errormsg" />
+        }
+        @@if(type !== "email"){
+            <input type="@@type" id="@@id" name="@@id" @@required data-val-required="@@errormsg" />
+        }
+        
+        <span class="form__highlight"></span>
+    </label>
+    <span class="validate__msg">@@errormsg</span>
+</div>
+<!-- ID / Name can be whatever is needed in umbraco -->

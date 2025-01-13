@@ -1,0 +1,182 @@
+/* ==========================================================================
+THEME OVERIDES
+========================================================================== */
+$uiBlack: #080b13;
+$uiWhite: #ffffff;
+
+$brandTan: #94624f;
+$brandGrey: #666666;
+$brandDarkGrey: #1a1e28;
+
+
+$colorText: $brandGrey;
+$colorTextInverse: $uiBlack;
+
+:root{
+   --black: #080b13;
+   --white: #FFFFFF;
+   --tan: #94624f;
+   --grey: #666666;
+   --darkgrey: #1a1e28;
+}
+
+/* BASE PRIMARY VARIABLES
+========================================================================== */
+
+//UI Info
+$uiError: #df2c37;
+$uiSuccess: #46b24b;
+$uiInfo: #4b6ebc;
+$colorHR: #cccccc;
+
+
+/* Structure - Breakpoints
+   ========================================================================== */
+
+$gridGutter: 80px;
+$gridGutterMobile: 40px;
+$gridMaxWidth: 1350px+ (2 * $gridGutter);
+
+$gridMaxWidthMid: 1100px+ (2 * $gridGutter);
+$gridMaxWidthNarrow: 920px+ (2 * $gridGutter);
+$gridMaxWidthNarrowArticle: 850px+ (2 * $gridGutter);
+
+$navBreak: 1060px;
+
+/* Key Site Variables
+========================================================================== */
+
+$colorSiteBG: #080b13;
+
+$linkColor: $colorText;
+$linkHover: $colorText;
+$linkFocus: $colorText;
+$linkActive: $colorText;
+$linkVisited: $colorText;
+
+$borderRadius: 5px;
+$formInputBG: $uiWhite;
+
+/* Header
+========================================================================== */
+
+$headerBackground: transparent;
+$headerBackgroundScrolled: rgba(255, 255, 255, 0.6);
+
+$navFontSize: 20px;
+$navFontColor: $colorText;
+$navFontPrefixColor: $brandTan;
+$navArrowColor: $brandGrey;
+
+$navDropdownMargin: -25px;
+$navDropdownFontSize: 16px;
+$navDropdownBackground: $brandTan;
+$navDropdownBorderRadius: 25px;
+
+$mobileNavPaddingVertical: 14px;
+$mobileNavPaddingHorizontal: $gridGutterMobile;
+$mobileNavBackground: $uiWhite;
+$mobileNavBackdrop: $uiBlack;
+$mobileNavBorderRadius: 25px;
+$mobileNavArrowColor: $brandTan;
+$mobileNavToggleColor: $uiWhite;
+$mobileNavToggleColorOpen: $brandTan;
+$mobileNavToggleBackground: $brandTan;
+$mobileNavToggleBorderRadius: 50%;
+$mobileNavSubMenuLine: $brandTan;
+$mobileNavSubPadding: 36px;
+
+/* Footer
+========================================================================== */
+
+/* Fonts
+========================================================================== */
+
+$baseFontFamily: 'Nunito Sans', Arial, sans-serif !default;
+$baseFontWeight: 500;
+$baseBoldWeight: 700;
+
+$headingFontFamily:  'Uncial Antiqua', "Times New Roman", serif !default;
+$headingFontWeight: 400;
+$headingTransform: unset;
+$headingLineHeight: 1.4;
+
+$textDirection: ltr !default; // if a multilingual website - rtl !default
+
+$baseFontSize: 18; // No px on this
+$baseLineHeight: 26px;
+
+$largeHeading: 110px;
+$largeBodyCopy: 35px;
+$preHeaderSize: 16px;
+
+$headingH3: 80px;
+$headingH4: 40px;
+$headingH5: 25px;
+
+$baseFontSize_mobile: 16px;
+$baseLineHeight_mobile: 21px;
+
+$largeHeading_mobile: 50px;
+$largeBodyCopy_mobile: 24px;
+$preHeaderSize_mobile: 14px;
+
+$headingH3_mobile: 37px;
+$headingH4_mobile: 25px;
+$headingH5_mobile: 16px;
+
+$headerFontSize: 14px;
+$footerFontSize: 12px;
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/* Buttons
+   ========================================================================== */
+
+$buttonBorderSize: 2px;
+$buttonBorderRadius: 0px;
+$buttonFontWeight: 400;
+$buttonFontSize: 18px;
+$buttonFontSize_mobile: 16px;
+$buttonTextTranform: unset;
+$buttonPadding: 12px 20px 12px 20px;
+$buttonPadding_mobile: 12px 20px 12px 20px;
+
+$buttonBackground: transparent;
+$buttonTextColor: $brandTan;
+$buttonBorderColor: $brandTan;
+$buttonBackground_hover: $brandTan;
+$buttonTextColor_hover: $uiWhite;
+$buttonBorderColor_hover: $brandTan;
+
+$buttonInverseBackground: $brandTan;
+$buttonInverseTextColor: $uiWhite;
+$buttonInverseBorderColor: $uiWhite;
+$buttonInverseBackground_hover: $brandDarkGrey;
+$buttonInverseTextColor_hover: $uiWhite;
+$buttonInverseBorderColor_hover: $uiWhite;
+
+/* Structure - Breakpoints
+   ========================================================================== */
+
+$gridGutter: 60px;
+$gridGutterMobile: 20px;
+$gridMaxWidth: 1350px + (2 * $gridGutter);
+
+$gridMaxWidthMid: 1100px + (2 * $gridGutter);
+$gridMaxWidthNarrow: 920px + (2 * $gridGutter);
+$gridMaxWidthNarrowArticle: 850px + (2 * $gridGutter);
+
+$breakpoints: (
+  mobile: 420,
+  tablet: 731,
+  desktop: 1025,
+  navigation: 1060
+) !default;
+
+/* Animation
+   ========================================================================== */
+
+$elasticAnimate: cubic-bezier(0.175, 0.885, 0.32, 1.1);

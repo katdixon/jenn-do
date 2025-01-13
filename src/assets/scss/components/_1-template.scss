@@ -1,0 +1,32 @@
+/*
+
+# Selector
+     
+*/
+
+/* Component
+   ========================================================================== */
+
+.Selector {
+}
+
+/* Modifiers
+   ========================================================================== */
+
+.Selector--modifier {
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+}
+
+//Mobile Small
+@include mq(0, mobile) {
+}

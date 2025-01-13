@@ -1,0 +1,286 @@
+/* Component
+   ========================================================================== */
+
+.footer {
+  @include critical {
+    position: relative;
+    background: darken($uiBlack, 1);
+    //background-color: blue;
+    overflow: hidden;
+    display: block;
+    color: $colorText;
+
+    * {
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    ul {
+      list-style: none;
+      display: block;
+      padding-left: 0;
+      margin: 0;
+
+      li {
+        padding: 0;
+        @include px(margin-bottom, 10px);
+      }
+    }
+
+    .column {
+      @include px(padding-top, 30px);
+      @include px(padding-bottom, 10px);
+      position: relative;
+    }
+  }
+}
+
+.footer__links {
+  @include critical {
+    a {
+      text-decoration: none;
+    }
+
+    &--quick {
+      @include px(min-width, 328px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      @include px(gap, 24px);
+    }
+
+    &--legal {
+      @include px(margin-top, 20px);
+      @include px(font-size, 14px);
+      @include px(line-height, 18px);
+
+      a {
+        @include px(margin-right, 10px);
+      }
+    }
+  }
+}
+
+.footer__logo {
+  @include critical {
+    @include px(padding-right, 60px);
+    @include px(margin-bottom, 40px);
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.footer__flex {
+  @include critical {
+    @include px(margin-bottom, 38px);
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    > * {
+      display: block;
+      @include px(padding-right, 60px);
+    }
+  }
+}
+
+.footer__social {
+  @include critical {
+    line-height: 0;
+    font-size: 0;
+    @include px(padding, 6px 0px);
+  }
+
+  @include defer {
+    img {
+      @include transition(transform 0.2s);
+    }
+
+    a:hover img {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.footer__heading {
+  @include defer {
+    font-weight: 700;
+  }
+}
+
+.footer__info,
+.nav .footer__info {
+  @include critical {
+    @include px(font-size, $baseFontSize * 1px);
+    @include px(margin, 0px 0px 20px 0px);
+    display: flex;
+    align-items: flex-start;
+    @include px(gap, 8px);
+    text-decoration: none;
+
+    > span {
+      flex: 1;
+      line-height: 1;
+    }
+  }
+}
+
+.footer__icon {
+  @include critical {
+    @include px(width, 24px);
+    @include px(height, 24px);
+  }
+}
+
+.footer__company-name,
+.footer__company-number {
+  @include critical {
+    @include px(font-size, 14px);
+    @include px(line-height, 18px);
+    margin-bottom: 0;
+  }
+}
+
+.footer__company-name {
+  @include critical {
+    font-weight: bold;
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop
+@include mq(desktop) {
+  .footer .column {
+    @include critical {
+      @include px(padding-top, 60px);
+      @include px(padding-bottom, 38px);
+    }
+  }
+
+  .footer__flex {
+    @include critical {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+
+      > * {
+        width: auto;
+      }
+    }
+  }
+}
+
+$intermediateBreakpoint: 1220px+ (2 * $gridGutter);
+
+//Tablet & Mobile
+@include mq(0, desktop) {
+  .footer__links {
+    @include critical {
+      &--quick {
+        min-width: 0;
+        justify-content: flex-start;
+        gap: 0;
+
+        > * {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+//Tablet only
+@include mq(tablet, desktop) {
+  .footer .footer__flex {
+    @include critical {
+      justify-content: space-between;
+
+      @include px(padding-top, 20px);
+      @include px(padding-bottom, 60px);
+
+      > * {
+        width: 50%;
+      }
+
+      .footer__col:nth-child(1) {
+        order: 2;
+      }
+
+      .footer__col:nth-child(2) {
+        @include px(margin-bottom, 56px);
+        padding-right: 0;
+        width: 100%;
+        order: 1;
+      }
+
+      .footer__col:nth-child(3) {
+        order: 3;
+      }
+
+      .footer__logo {
+        width: 100%;
+        @include px(margin-bottom, 50px);
+      }
+    }
+  }
+}
+
+//Mobile
+@include mq(0, tablet) {
+  .footer__logo {
+    @include defer {
+      padding-right: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer__flex {
+    @include critical {
+      > * {
+        @include px(padding, 26px 0);
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .footer__contact {
+        width: 100%;
+        @include px(margin-bottom, 50px);
+      }
+
+      .footer__useful {
+        width: 100%;
+      }
+    }
+  }
+
+  .footer__company-info {
+    @include critical {
+      @include px(padding-top, 52px);
+      @include px(padding-bottom, 72px);
+
+      .footer__links {
+        width: 100%;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .footer__info,
+  .nav .footer__info {
+    @include critical {
+      @include px(font-size, $baseFontSize_mobile * 1px);
+      @include px(line-height, $baseLineHeight_mobile);
+
+      > svg {
+        @include px(margin-top, -3px);
+      }
+    }
+  }
+}

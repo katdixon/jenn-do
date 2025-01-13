@@ -1,0 +1,129 @@
+/*
+
+# Selector
+
+*/
+
+/* Component
+   ========================================================================== */
+
+@mixin accordion {
+  /* collapsing-section */
+  .accordion__panel {
+    //@include px(padding-top, 10px);
+    @include transition(all 0.2s ease-out);
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .accordion__expander,
+  button.accordion__expander,
+  a.accordion__expander {
+    //cursor: pointer;
+
+    &:hover {
+      > span {
+        &:after,
+        &:before {
+          background: white;
+        }
+      }
+    }
+
+    svg {
+      @include transition(transform 0.2s);
+    }
+  }
+
+  .accordion__section--show .accordion__panel {
+    @include transition(all 0.2s ease-in);
+    max-height: 1000px;
+  }
+
+  .accordion__section--show .accordion__expander {
+    > span {
+      background-color: transparent;
+
+      &:after,
+      &:before {
+        background-color: red;
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+.accordion {
+  @include critical {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Accordion headers */
+
+.accordion__expander,
+button.accordion__expander,
+a.accordion__expander {
+  @include critical {
+    position: relative;
+    text-decoration: none;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    text-align: left;
+    line-height: inherit;
+    font-size: inherit;
+    padding: 5px 0px;
+    cursor: default;
+
+    h4,
+    h5 {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.accordion__panel {
+  @include critical {
+    display: block;
+  }
+}
+
+.accordion__panel p:last-child {
+  @include critical {
+    margin-bottom: 0;
+  }
+}
+
+.js .accordion[data-type='all'] {
+  @include critical {
+    @include accordion();
+  }
+}
+
+/* Modifiers
+========================================================================== */
+
+/* Media Queries
+========================================================================== */
+
+//Desktop
+@include mq(desktop) {
+}
+
+//Tablet
+@include mq(0, desktop) {
+}
+
+//Mobile
+@include mq(0, tablet) {
+  .js .accordion[data-type='mobileonly'] {
+    @include critical {
+      @include accordion();
+    }
+  }
+}

@@ -1,0 +1,82 @@
+/* Component
+   ========================================================================== */
+
+.fullwidth {
+  text-align: left;
+
+  ul,
+  ol {
+    display: inline-block;
+
+    li {
+      text-align: left;
+    }
+  }
+
+  .module__heading {
+    width: 100%;
+    //@include px(max-width, 760px);
+  }
+}
+
+.fullwidth {
+  a.button,
+  button.button {
+    @include px(margin-right, 20px);
+    @include px(margin-left, 0px);
+  }
+
+  .module__text {
+    width: 100%;
+    @include px(max-width, 880px);
+  }
+}
+
+/* Modifiers
+   ========================================================================== */
+
+.fullwidth {
+  .module__text.u-large-body {
+    @include critical {
+      max-width: 100%;
+    }
+  }
+}
+
+.fullwidth--center {
+  @include critical {
+    text-align: center;
+
+    a.button,
+    button.button {
+      @include px(margin-right, 10px);
+      @include px(margin-left, 10px);
+    }
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+}
+
+//Mobile Small
+@include mq(0, tablet) {
+  .fullwidth {
+    @include critical {
+      text-align: left;
+
+      a.button,
+      button.button {
+        @include px(margin-right, 20px);
+        @include px(margin-left, 0px);
+      }
+    }
+  }
+}

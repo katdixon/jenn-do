@@ -1,0 +1,36 @@
+<!------ START 50:50 ------>
+<section class="module fifty-fifty fifty-fifty--media-@@imagefirst" style="--bgColour: var(--@@bg); --headingColour:  var(--@@headingColour); --textColour: var(--@@textColour)">
+    <div class="">
+        <div class="column flex5050">
+            <div class="fifty-fifty__media">
+                <div class="fifty-fifty__media-container">
+                </div>
+            </div>
+            <div class="fifty-fifty__copy module__background">
+
+                @@if(preheader){
+                    <p class="module__heading u-preheader">@@preheader</p>
+                }
+
+                @@if(title){
+                    <h3 class="module__heading u-h2">@@title</h3>
+                }
+
+                @@if(copy){
+                    <div class="module__text ">
+                        @@copy
+                    </div>
+                }
+
+                @@if(buttons.length){
+                    <div class="button__container">
+                        @@for (var i = 0; i < buttons.length; i++) {
+                            <a class="button" href="/">`+buttons[i]+`</a>
+                        }
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

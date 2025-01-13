@@ -1,0 +1,338 @@
+<section class="card-list module module__background theme__background--light">
+
+    
+    @@if(filters == ""){
+        <div>
+    }
+
+    @@if(filters !== ""){
+        <div class="js-cardlist">
+            <!-- NB: additional js-cardlist class if needs filtering and load more / pagination -->
+                <!-- data-filter="" if all -->
+    
+        
+            <div class="column column--narrow">
+                <div class="card-list__controls module__text ">
+            
+                    <div class="card-list__filters">
+                        <span>Filter articles by:</span>
+                        <button type="button" class="card-list__filter js-cardlist-filter" data-filter="News">News</button>
+                        <button type="button" class="card-list__filter js-cardlist-filter" data-filter="Blog">Blog</button>
+                        <button type="button" class="card-list__filter js-cardlist-filter" data-filter="testing">Testing</button>
+                    </div>
+
+                    <div class="card-list__reset-container">
+                        <button type="button" class="card-list__reset js-cardlist-filter u-active" data-filter="">
+                            <span>Clear filters</span>
+                            <span>
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 12 12" style="enable-background:new 0 0 12 12;" width="12" height="12" xml:space="preserve">
+                           <rect x="-0.6" y="4.5" transform="matrix(0.7065 -0.7078 0.7078 0.7065 -2.486 6.0081)" width="13.2" height="3"/>
+                           <rect x="4.5" y="-0.6" transform="matrix(0.7066 -0.7076 0.7076 0.7066 -2.4862 6.0059)"  width="3" height="13.2"/>
+                           </svg></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+    }
+
+
+        <div class="column">
+            <ul class="card-list__list">
+
+                @@if(filters !== ""){
+
+                    @@include('card.html', {
+                        "title" : "Blog: Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : " data-filters='Blog'"   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "News: Activity or article heading on two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : " data-filters='News'"   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "News|Blog: Activity or article heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : " data-filters='Blog|News'"   
+                    })
+
+
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "Activity or article heading on two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+    
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "Activity or article heading on two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : " class='card-list__hiddenli' ",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : " class='card-list__hiddenli' ",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : " class='card-list__hiddenli' ",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity or article heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "",
+                        "location" : "",
+                        "class" : " class='card-list__hiddenli' ",
+                        "filters" : ""   
+                    })
+
+                }
+                
+                
+
+                @@if(filters == ""){
+                    @@include('card.html', {
+                        "title" : "Activity heading that runs onto two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "9:00",
+                        "location" : "Broom Closet 1",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity  heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "10:00",
+                        "location" : "Lobby",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "15:00",
+                        "location" : "Location one",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity heading that runs onto two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "9:00",
+                        "location" : "Broom Closet 1",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity  heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "10:00",
+                        "location" : "Lobby",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "15:00",
+                        "location" : "Location one",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity heading that runs onto two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "9:00",
+                        "location" : "Broom Closet 1",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity  heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "10:00",
+                        "location" : "Lobby",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity heading",
+                        "image" : "1.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "23.01.23",
+                        "time" : "15:00",
+                        "location" : "Location one",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+        
+                    @@include('card.html', {
+                        "title" : "Activity heading that runs onto two lines",
+                        "image" : "2.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "10.03.23",
+                        "time" : "9:00",
+                        "location" : "Broom Closet 1",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+                    @@include('card.html', {
+                        "title" : "Activity  heading",
+                        "image" : "3.jpg",
+                        "summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua.",
+                        "date" : "4.08.23",
+                        "time" : "10:00",
+                        "location" : "Lobby",
+                        "class" : "",
+                        "filters" : ""   
+                    })
+
+
+        
+                }
+    
+            </ul>
+        
+
+            @@if(filters !== ""){
+                <div class="button__container">
+                    <button type="button" class="button button--loadmore js-cardlist-loadmore">Load more</button>
+                </div>
+            }
+
+        </div>
+
+
+    </div>
+
+
+
+
+</section>

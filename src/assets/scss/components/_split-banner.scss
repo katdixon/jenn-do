@@ -1,0 +1,143 @@
+/* Component
+   ========================================================================== */
+
+.split-banner {
+  @include critical {
+    overflow: hidden;
+
+    @include mq(desktop) {
+      @include px(min-height, 600px);
+    }
+  }
+}
+
+.split-banner .flex {
+  @include critical {
+    overflow: visible;
+  }
+}
+
+.split-banner__copy.flex__col {
+  @include critical {
+    @include mq(desktop) {
+      @include px(margin-top, 100px);
+    }
+  }
+}
+
+.split-banner__image {
+  @include critical {
+    @include mq(desktop) {
+      order: 2;
+    }
+
+    @include mq(0, desktop) {
+      &.flex__col {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.split-banner__image-container {
+  @include critical {
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+    }
+
+    @include mq(desktop) {
+      position: absolute;
+      bottom: 50%;
+      transform: translateY(50%);
+      left: 0;
+      width: 100%;
+
+      &::after {
+        padding-top: 100%;
+      }
+    }
+
+    @include mq(0, tablet) {
+      &::after {
+        padding-top: 90%;
+      }
+    }
+
+    @include mq(tablet, desktop) {
+      &::after {
+        padding-top: 70%;
+      }
+    }
+  }
+}
+
+/* Masks
+   ========================================================================== */
+.split-banner--square .split-banner__image-container {
+  @include critical {
+    @include mq(desktop) {
+      mask-image: url('/assets/img/svgs/mask-rect.svg');
+      mask-size: 1500px 1500px;
+      mask-repeat: no-repeat;
+      mask-position: 0% 84%;
+
+      height: 100%;
+      width: calc(100% + #{$gridGutter});
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  @include mq(1300px) {
+    //min-height: 0;
+    //max-width: 140%;
+  }
+
+  @include mq(0, tablet) {
+    clip-path: polygon(0% 84%, 100% 100%, 100% 0%, 0% 0%);
+  }
+
+  @include mq(tablet, desktop) {
+    clip-path: polygon(0% 75%, 100% 100%, 100% 0%, 0% 0%);
+  }
+}
+
+.split-banner--square .split-banner__copy.flex__col {
+  @include critical {
+    @include mq(0, desktop) {
+      padding-top: 0;
+    }
+  }
+}
+
+.split-banner--circular .split-banner__image-container {
+  @include critical {
+    @include mq(desktop) {
+      clip-path: circle(50% at 50% 50%);
+      @include px(width, 1030px);
+      max-width: 140%;
+      transform: translateY(40%);
+    }
+
+    @include mq(0, tablet) {
+      clip-path: circle(60% at 56% 36%);
+    }
+
+    @include mq(tablet, desktop) {
+      clip-path: circle(67% at 57% 17%);
+    }
+  }
+}
+
+.split-banner--circular .split-banner__copy.flex__col {
+  @include critical {
+    @include mq(0, desktop) {
+      @include px(padding-top, 20px);
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@@include('includes/header.html', {
+    "pageTitle": "All Modules"
+})
+
+@@include('includes/nav.html')
+
+<main class="UnityPlace__page" >
+
+
+    @@include('modules/banner/banner.html', {
+        "button" : "true",
+        "h" : "h3",
+        "title" : "Hero Banner - no video",
+        "copy" : "<p>Lorem ipsum dolor sit amet, <a href=''>consectetur adipisicing elit</a>, sed do <em>eiusmod</em> tempor <strong>incididunt</strong> ut ero labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti laboris nisi ut aliquip ex ea commodo consequat. </p>",
+        "vimeo" : "",
+        "slides" : [
+            {"image" : "1"}
+        ],
+        "id" : "b0"
+    })
+
+    @@include('modules/banner/banner.html', {
+        "button" : "true",
+        "h" : "h2",
+        "title" : "Hero Banner - with Video & Text",
+        "copy" : "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et dolore magna aliqua. </p>",
+        "vimeo" : "https://vimeo.com/811947919",
+        "vimeomobile" : "",
+        "slides" : [
+            {"image" : "1"}
+        ],
+        "id" : "b2"
+    })
+
+
+
+    @@include('modules/fullwidth.html', {
+        "h" : "h3",
+        "title" : "This is the title",
+        "copy" : "<p>Lorem ipsum dolor sit amet, <a href=''>consectetur adipisicing elit</a>, sed do <em>eiusmod</em> tempor <strong>incididunt</strong> ut ero labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco poriti laboris nisi ut aliquip ex ea commodo consequat. </p>",
+        "buttons" : ["Button one", "Button two"],
+        "theme" : ""
+    })
+
+    @@include('modules/fullwidth.html', {
+        "h" : "h3",
+        "title" : "Copy, bullets, some formatting, but no buttons",
+        "copy" : "",
+        "buttons" : ["Button one", "Button two"],
+        "theme" : "black"
+    })
+
+
+
+    @@include('modules/html-embed.html', {
+        "class" : " ",
+        "theme" : "white",
+        "embedcode" : "<div>Embed module testing - 16x9 not forced</div>"
+    })
+
+    @@include('modules/html-embed.html', {
+        "class" : " embed--force16x9",
+        "theme" : "black",
+        "embedcode" : "<iframe width='560' height='315' src='https://www.youtube.com/embed/SQOfqpGL2y8' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen=''></iframe>"
+    })
+
+
+
+    @@include('modules/forms/contact-form.html')
+
+    @@include('modules/forms/contact-form-errors.html')
+
+    @@include('modules/cards/featured.html', {
+        "h" : "h2",
+        "title" : "Featured Cards",
+        "copy" : "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed <em>do eiusmod</em> tempor <strong>incididunt ut ero</strong> labore et dolore magna aliqua. <a href='#'>Ut enim ad minim</a> veniam, quis nostrud exercitation ullamco poriti laboris nisi ut aliquip ex ea commodo consequat. </p>",
+        "button" : true
+    })
+
+</main><!-- .Wrapper -->
+
+
+
+@@include('includes/footer.html')

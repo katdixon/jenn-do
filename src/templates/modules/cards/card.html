@@ -1,0 +1,61 @@
+<!-- If the blog section, add data-filters attribute to the li with a pipe seperated list  -->
+
+<li @@class @@filters>
+    <a href="/pages/article.html" class="module card">
+
+        <div class="card__image">
+
+            @@include('../../includes/slimsy.html', {
+                "image" : {
+                    "desktop" : "/assets/img/temp/cards/@@image", 
+                    "mobile" : "/assets/img/temp/cards/@@image"
+                },
+                "width" : "388",
+                "height" : "235",
+                "breakpoint" : "",
+                "pictureclass" : "",
+                "imgclass" : "u-objectFit",
+                "sizes" : "388x235"
+            })
+
+        </div>
+
+
+        <div class="card__content">
+            <div class="card__text">
+                <p class="card__title u-h3">@@title</p>
+                <ul class="card__details">
+
+                    @@if(date){
+                        <li>
+                            @@include('../../svgs/date.html')
+                            <span>@@date</span>
+                        </li>
+                    }
+
+                    @@if(time){
+                        <li>
+                            @@include('../../svgs/time.html')
+                            <span>@@time</span>
+                        </li>
+                    }
+
+                    @@if(location){
+                        <li>
+                            @@include('../../svgs/location.html')
+                            <span>@@location</span>
+                        </li>
+                    }
+
+                </ul>
+                <p class="card__summary">
+                    @@summary
+                </p>
+            </div>
+
+            <span class="button button--arrow">Read more</span>
+        </div>
+
+
+    </a>
+</li>

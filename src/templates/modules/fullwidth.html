@@ -1,0 +1,33 @@
+<!------ START FULL WIDTH COPY ------>
+<section class="module fullwidth module__background theme__background--@@theme" >
+
+    <div class="column column--narrow">
+
+        @@if(title){
+            <@@h class="module__heading u-h2">@@title</@@h>
+        }
+
+        <div class="module__text module__text--narrow">
+
+            @@if(copy){
+                @@copy
+            }
+
+            @@if(copy == ""){
+                @@include('../includes/wysiwig.html')
+            }
+
+        </div>
+
+        @@if(buttons.length){
+            <div class="button__container">
+        
+            @@for (var i = 0; i < buttons.length; i++) {
+                <a class="button" href="/">`+buttons[i]+`</a>
+            }
+            </div>
+        }
+    </div>
+
+</section>
+<!------ END FULL WIDTH COPY ------>

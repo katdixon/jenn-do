@@ -1,0 +1,89 @@
+.featured-heading--seo-circles {
+  @include critical {
+    .featured-heading__headings * {
+      @include critical {
+        text-align: right !important;
+      }
+    }
+    .featured-heading__headings *.u-preheader:after {
+      @include critical {
+        margin-left: auto;
+        margin-right: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  //Desktop Up
+  @include mq(desktop) {
+    .featured-heading__grid {
+      @include critical {
+        @include clamp(margin-top, $margin-small * 0.5, $margin-large * 0.5);
+        @include clamp(margin-bottom, $margin-small * 0.5, $margin-large * 0.5);
+      }
+    }
+    .featured-heading__svg {
+      @include critical {
+        position: absolute;
+        left: 0;
+
+        svg {
+          position: absolute;
+          @include px(left, 0);
+        }
+      }
+    }
+
+    .featured-heading__text {
+      @include critical {
+        position: absolute;
+        z-index: 20;
+        right: 0;
+        bottom: 14%;
+        width: 50%;
+        @include px(padding-right, $gridGutter);
+      }
+    }
+
+    .featured-heading__copy {
+      @include critical {
+        width: 100%;
+        @include px(max-width, 520px);
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include mq(0, desktop) {
+    .featured-heading__headings {
+      @include critical {
+        .u-preheader {
+          color: $colorTextInverse;
+          &::after {
+            background-color: $colorTextInverse;
+          }
+        }
+      }
+    }
+
+    .featured-heading__svg {
+      @include critical {
+        height: calc(100vw - 60px);
+        text-align: center;
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        position: absolute;
+        @include px(right, $gridGutterMobile);
+        @include px(top, $gridGutterMobile);
+        @include px(padding-bottom, $gridGutterMobile);
+        width: calc(70vw - #{$gridGutterMobile});
+        margin-right: 3px;
+        top: 55vw;
+      }
+    }
+  }
+}

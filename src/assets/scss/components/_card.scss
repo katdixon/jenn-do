@@ -1,0 +1,95 @@
+/* Component
+   ========================================================================== */
+
+a.card {
+  @include critical {
+    position: relative;
+    width: 100%;
+    border: 2px solid transparent;
+
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    margin: 0px auto;
+    z-index: 1; //fixes stranger border radius ios glitch
+
+    display: flex;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    @include px(padding, 10px);
+    @include transition(border-color 0.3s);
+  }
+  @include defer {
+    &:hover {
+      border: 2px solid $brandTan;
+    }
+  }
+
+  .button {
+    @include critical {
+      width: auto;
+      display: inline-block;
+      @include px(margin, 0px 0px 25px 0px);
+    }
+
+    &:hover {
+      @include defer {
+        background-color: $brandTan;
+      }
+    }
+  }
+}
+
+.card__image {
+  @include critical {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    //height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include px(margin-bottom, 30px);
+
+    &:after {
+      position: relative;
+      content: '';
+      display: block;
+      padding-bottom: 70.1%; //310x220
+    }
+  }
+}
+
+.card__content {
+  @include critical {
+    position: relative;
+    width: 100%;
+    z-index: 20;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+// Mobile
+@include mq(0, tablet) {
+  a.card {
+    @include critical {
+      @include px(width, 460px);
+      max-width: 100%;
+    }
+  }
+
+  .card__title {
+    @include critical {
+      min-height: 0px;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+**/*.html
+dist
+vendor
+main.scss

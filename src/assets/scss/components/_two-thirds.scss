@@ -1,0 +1,169 @@
+/* Component
+   ========================================================================== */
+
+$two-thirds-image-aspect-ratio: 78.89%;
+$two-thirds-large-padding: $gridGutter;
+$two-thirds-small-padding: calc($gridGutter / 2);
+
+.two-thirds {
+  @include critical {
+    position: relative;
+    overflow: hidden;
+
+    .flex {
+      align-items: center;
+    }
+
+    .flex__media::after {
+      content: '';
+      padding-bottom: $two-thirds-image-aspect-ratio;
+      display: block;
+    }
+
+    a.button,
+    button.button {
+      @include px(margin-right, 20px);
+    }
+  }
+}
+
+.two-thirds__buttons {
+  @include critical {
+    @include px(margin-top, 30px);
+  }
+}
+
+.two-thirds__media-container {
+  @include critical {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+  }
+}
+
+/* Video
+   ========================================================================== */
+
+.two-thirds__video {
+  &.video-embed iframe {
+    @include critical {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  &.video-embed:after {
+    @include critical {
+      display: block;
+      content: '';
+      padding-bottom: 56.25%;
+    }
+  }
+
+  .video-embed__placeholder--hide {
+    @include critical {
+      display: none;
+    }
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+$halfGridWidth: $gridMaxWidth * 0.5;
+$sixtyGridWidth: $gridMaxWidth * 0.58;
+$fortyGridWidth: $gridMaxWidth * 0.42;
+
+//Desktop and Up
+@include mq(desktop) {
+  .two-thirds {
+    @include critical {
+      .flex {
+        flex-direction: row-reverse;
+      }
+
+      .flex__media {
+        width: 60%;
+      }
+
+      .flex__copy {
+        width: 40%;
+        @include px(padding-right, $fifty-fifty-large-padding);
+        @include px(padding-left, $fifty-fifty-small-padding);
+      }
+    }
+  }
+
+  .two-thirds--media-left {
+    @include critical {
+      .flex {
+        flex-direction: row;
+      }
+
+      .flex__copy {
+        @include px(padding-right, $fifty-fifty-small-padding);
+        @include px(padding-left, $fifty-fifty-large-padding);
+      }
+    }
+  }
+
+  .two-thirds {
+    .flex__col {
+      @include critical {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include px(max-width, 596px);
+        width: 100%;
+      }
+    }
+  }
+}
+
+//Large Desktop and Up
+@include mq(desktop) {
+  .two-thirds {
+    @include critical {
+      .flex__media {
+        width: calc(50% - $halfGridWidth + $sixtyGridWidth);
+      }
+      .flex__copy {
+        width: calc(50% - $halfGridWidth + $fortyGridWidth);
+      }
+    }
+  }
+}
+
+//Tablet and Mobile
+@include mq(0, desktop) {
+  .two-thirds__copy:first-child {
+    @include critical {
+      @include px(padding-bottom, 50px);
+
+      .module__text > p:last-child,
+      .module__text > div:last-child > p:last-child {
+        //because MS Word is a ****
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .two-thirds__copy:last-child {
+    @include critical {
+      @include px(padding-top, 50px);
+    }
+  }
+
+  .two-thirds .flex__copy {
+    @include critical {
+      @include px(padding-top, 50px);
+      @include px(padding-bottom, 50px);
+    }
+  }
+}

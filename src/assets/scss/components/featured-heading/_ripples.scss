@@ -1,0 +1,72 @@
+.featured-heading--ripples {
+  //Desktop Up
+  @include mq(desktop) {
+    .featured-heading__svg {
+      @include critical {
+        position: absolute;
+        right: 50%;
+        width: 100%;
+        left: auto;
+
+        svg {
+          @include px(height, 470px);
+          position: absolute;
+          top: 50%;
+          @include px(margin-top, -235px);
+          @include px(right, -44px);
+        }
+      }
+    }
+
+    .featured-heading__text {
+      @include critical {
+        position: absolute;
+        z-index: 20;
+        right: 0;
+        top: 20%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+
+        > * {
+          @include px(padding, 20px);
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        width: 50%;
+        @include px(max-width, 705px);
+      }
+    }
+
+    .featured-heading__copy {
+      @include critical {
+        width: 50%;
+        @include px(max-width, 520px);
+      }
+    }
+  }
+
+  @include mq(0, desktop) {
+    .featured-heading__svg {
+      @include critical {
+        height: 54vw;
+        svg {
+          height: 100%;
+          transform: translateX(-40%);
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        margin-top: -14vw;
+        @include px(max-width, 400px);
+      }
+    }
+  }
+}

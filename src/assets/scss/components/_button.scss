@@ -1,0 +1,202 @@
+/*
+
+# Selector
+
+*/
+
+/* Component
+   ========================================================================== */
+
+/* Button Mixins
+========================================================================== */
+
+@mixin button(
+  $btnColour: $buttonTextColor,
+  $btnBackground: $buttonBackground,
+  $btnBorderColor: $buttonBorderColor,
+  $btnColourHover: $buttonTextColor_hover,
+  $btnBackgroundHover: $buttonBackground_hover,
+  $btnBorderColorHover: $buttonBorderColor_hover,
+  $btnBorderRadius: $buttonBorderRadius,
+  $btnBorderSize: $buttonBorderSize,
+  $btnFontSize: $buttonFontSize,
+  $btnFontWeight: $buttonFontWeight,
+  $btnTextTranform: $buttonTextTranform,
+  $btnPadding: $buttonPadding,
+  $btnPadding_mobile: $buttonPadding_mobile,
+  $btnFontSize_mobile: $buttonFontSize_mobile,
+  $gradients: 'true'
+) {
+  @include critical {
+    position: relative;
+    display: inline-block;
+    color: $btnColour;
+    background-color: $btnBackground;
+    @include px(font-size, $btnFontSize);
+    font-weight: $btnFontWeight;
+    @include px('border-radius', $btnBorderRadius);
+
+    border: $btnBorderSize solid $btnBorderColor;
+
+    text-transform: $btnTextTranform;
+    font-family: $baseFontFamily;
+
+    @include transition(transform 0.3s, color 0.3s, background-color 0.3s);
+
+    @include px('padding', $btnPadding);
+    @include px('margin', 0 0 10px 0);
+    //cursor: pointer;
+    text-decoration: none;
+    line-height: normal;
+    vertical-align: middle;
+    user-select: none;
+    white-space: normal;
+    -webkit-appearance: none;
+    appearance: none;
+    text-align: center;
+    line-height: 1;
+
+    > * {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      z-index: 4;
+    }
+
+    svg {
+      left: 0;
+      @include px(margin-left, 15px);
+      @include transition(left 0.2s);
+    }
+  }
+
+  @include defer {
+    &:visited,
+    &:active {
+      color: $btnColour;
+      background-color: $btnBackground;
+    }
+
+    &:hover,
+    &.is-active,
+    &:focus {
+      color: $btnColourHover;
+      border: $btnBorderSize solid $btnBorderColorHover;
+      background-color: $btnBackgroundHover;
+
+      svg {
+        @include px(left, 10px);
+      }
+    }
+  }
+
+
+  @include defer {
+    &:disabled,
+    &.disabled,
+    &:disabled:hover,
+    &.disabled:hover,
+    &.is-active:disabled,
+    &:disabled:focus,
+    &.disabled:focus {
+      cursor: default !important;
+      color: $btnColour;
+      background-color: $btnBackground;
+      opacity: 0.4 !important;
+    }
+  }
+
+  //Mobile
+  @include mq(0, tablet) {
+    @include critical {
+      @include px('padding', $btnPadding_mobile);
+      @include px(font-size, $btnFontSize_mobile);
+    }
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@mixin buttontype($buttontype) {
+  @if $buttontype == 'inverse' {
+    @include button(
+      $btnColour: $buttonInverseTextColor,
+      $btnBackground: $buttonInverseBackground,
+      $btnBorderColor: $buttonInverseBorderColor,
+      $btnColourHover: $buttonInverseTextColor_hover,
+      $btnBackgroundHover: $buttonInverseBackground_hover,
+      $btnBorderColorHover: $buttonInverseBorderColor_hover
+    );
+  } @else if $buttontype == 'text' {
+    @include button(
+      $btnPadding: 4px 30px 8px 0px,
+      $btnPadding_mobile: 4px 30px 8px 0px,
+      $btnBorderSize: 0px,
+      $btnBorderRadius: 0px,
+      $gradients: 'false'
+    );
+  } @else {
+    @include button();
+  }
+}
+
+.button,
+a.button {
+  @include button();
+}
+
+.button__container {
+  @include critical {
+    @include px(margin-top, 30px);
+    @include px(
+      margin-bottom,
+      -10px
+    ); // buttons have a margin-bottom so allow for correct display on wrap
+
+    .button + .button {
+      @include px(margin-left, 10px);
+    }
+  }
+}
+
+/* Modifiers
+   ========================================================================== */
+.button--secondary,
+a.button.button--secondary {
+  @include buttontype('secondary');
+}
+
+.button--inverse,
+a.button.button--inverse {
+  @include buttontype('inverse');
+}
+
+*.button__text-link {
+  @include buttontype('text');
+}
+
+.button.button--small {
+  @include px(padding, 4px 13px);
+}
+
+.button.button--back-to-top {
+  @include critical {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 400;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3);
+    font-size: 0.8rem;
+  }
+}

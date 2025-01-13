@@ -1,0 +1,174 @@
+$statsOffset: 90px;
+
+.statistics {
+  &__stats {
+    @include critical {
+      display: grid;
+      @include px(gap, 50px);
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &__stats--#{$i} {
+      @include critical {
+        grid-template-columns: repeat(#{$i}, 1fr);
+      }
+    }
+  }
+
+  .statistic {
+    @include critical {
+      justify-self: center;
+    }
+  }
+
+  &__stats--5 {
+    @include critical {
+      grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+
+      .statistic:nth-child(1) {
+        @include px(margin-right, $statsOffset);
+        @include px(margin-bottom, $statsOffset);
+      }
+
+      .statistic:nth-child(2) {
+        grid-row-start: span 2;
+        align-self: center;
+        @include px(margin-bottom, $statsOffset);
+      }
+
+      .statistic:nth-child(3) {
+        @include px(margin-left, $statsOffset);
+      }
+      .statistic:nth-child(4) {
+        @include px(margin-left, calc($statsOffset / 2));
+      }
+      .statistic:nth-child(5) {
+        @include px(margin-right, $statsOffset);
+      }
+    }
+  }
+  &__stats--4 {
+    @include critical {
+      .statistic:nth-child(even) {
+        @include px(margin-top, $statsOffset);
+      }
+    }
+  }
+  &__stats--3 {
+    @include critical {
+      .statistic:nth-child(odd) {
+        @include px(margin-top, $statsOffset);
+      }
+    }
+  }
+  &__stats--2 {
+    @include critical {
+      .statistic:nth-child(even) {
+        @include px(margin-top, $statsOffset);
+      }
+    }
+  }
+}
+
+.statistic {
+  @include critical {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  &__stat {
+    @include critical {
+      display: inline-block;
+      color: var(--headingColour);
+      @include clamp(font-size, 60px, 150px);
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+
+  &__description {
+    @include critical {
+      display: block;
+      margin: 0;
+      @include px(max-width, 290px);
+      width: 100%;
+    }
+  }
+}
+
+/*
+  Media Queries
+*/
+
+// mobile and tablet
+@include mq(0, tablet) {
+  .statistics {
+    &__stats {
+      @include critical {
+        grid-template-columns: repeat(2, 1fr);
+        @include px(gap, 20px 0);
+
+        .statistic {
+          grid-column: -1 / 1;
+          justify-self: start;
+        }
+      }
+    }
+
+    &__stats--5 {
+      @include critical {
+        @for $i from 1 through 5 {
+          .statistic:nth-child(#{$i}) {
+            margin: 0;
+          }
+        }
+      }
+    }
+    &__stats--4 .statistic:nth-child(even),
+    &__stats--3 .statistic:nth-child(odd),
+    &__stats--2 .statistic:nth-child(even) {
+      @include critical {
+        margin: 0;
+      }
+    }
+
+    &__stats--5 {
+      @include critical {
+        .statistic:nth-child(even) {
+          grid-column: -2;
+        }
+        .statistic:nth-child(odd) {
+          @include px(margin-left, 20px);
+        }
+      }
+    }
+    &__stats--4 {
+      @include critical {
+        .statistic:nth-child(even) {
+          grid-column: -2;
+        }
+        .statistic:nth-child(odd) {
+          @include px(margin-left, 20px);
+        }
+      }
+    }
+    &__stats--3 {
+      @include critical {
+        .statistic:nth-child(odd) {
+          grid-column: -2;
+        }
+        .statistic:nth-child(even) {
+          @include px(margin-left, 20px);
+        }
+      }
+    }
+    &__stats--2 {
+      @include critical {
+        .statistic:nth-child(even) {
+          grid-column: -2;
+        }
+      }
+    }
+  }
+}

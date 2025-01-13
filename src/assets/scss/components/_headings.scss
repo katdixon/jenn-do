@@ -1,0 +1,45 @@
+/*
+
+# Selector
+
+*/
+
+/* Component
+   ========================================================================== */
+
+b-pp,
+i-pp {
+  @include critical {
+    font-weight: 700;
+    text-transform: initial !important;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+}
+
+i-pp {
+  @include critical {
+    font-style: italic;
+  }
+}
+
+/* Modifiers
+   ========================================================================== */
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+}
+
+//Tablet and Mobile
+@include mq(0, desktop) {
+}
+//Mobile
+@include mq(0, tablet) {
+}

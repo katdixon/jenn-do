@@ -1,0 +1,106 @@
+.featured-heading--websites-squares {
+  .featured-heading__headings {
+    @include critical {
+      .u-preheader {
+        color: $colorTextInverse;
+        &::after {
+          background-color: $colorTextInverse;
+        }
+      }
+    }
+  }
+
+  //Desktop Up
+  @include mq(desktop) {
+    @include critical {
+      min-height: 0;
+    }
+
+    .featured-heading__grid {
+      @include critical {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        @include clamp(margin-top, $margin-small, $margin-large);
+        @include clamp(margin-bottom, $margin-small, $margin-large);
+        @include clamp(padding-left, $margin-small, $margin-large);
+        @include clamp(padding-right, $margin-small, $margin-large);
+      }
+    }
+
+    .featured-heading__text {
+      @include critical {
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 45%;
+        align-items: flex-end;
+
+        @include clamp(
+          padding-left,
+          $margin-small * 1.75,
+          $margin-large * 1.75
+        );
+        @include clamp(padding-right, $margin-small, $margin-large);
+      }
+    }
+
+    .featured-heading__svg {
+      @include critical {
+        width: 55%;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        svg {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        width: 33%;
+        flex-shrink: 0;
+        flex-grow: 0;
+        @include clamp(margin-right, $margin-small * 3, $margin-large * 3);
+
+        .u-h2 {
+          @include clamp(
+            margin-bottom,
+            $margin-small * 0.5,
+            $margin-large * 0.5
+          );
+        }
+      }
+    }
+
+    .featured-heading__copy {
+      @include critical {
+        @include clamp(padding-top, $margin-small * 0.5, $margin-large * 0.5);
+        min-height: 100%;
+      }
+    }
+  }
+
+  @include mq(0, desktop) {
+    .featured-heading__headings {
+      @include critical {
+        position: absolute;
+        @include px(left, $gridGutterMobile);
+        @include px(top, $gridGutterMobile);
+        @include px(padding-bottom, $gridGutterMobile);
+        width: calc(70vw - #{$gridGutterMobile});
+        height: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+    }
+  }
+}

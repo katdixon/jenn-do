@@ -1,0 +1,32 @@
+<!------ START ARTICLE DETAILS ------>
+<section class="module fullwidth module__background" >
+
+    <div class="column column--narrow">
+
+        <ul class="article__details">
+            @@if(date){
+                <li>
+                    @@include('../../svgs/date.html')
+                    <span>@@date</span>
+                </li>
+            }
+
+            @@if(time){
+                <li>
+                    @@include('../../svgs/time.html')
+                    <span>@@time</span>
+                </li>
+            }
+
+            @@if(location){
+                <li>
+                    @@include('../../svgs/location.html')
+                    <span>@@location</span>
+                </li>
+            }
+        </ul>
+        
+    </div>
+
+</section>
+<!------ END ARTICLE DETAILS ------>

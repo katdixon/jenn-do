@@ -1,0 +1,68 @@
+<!---- START CONTACT FORM (with error state active) ---->
+<section class="module fullwidth module__background theme__background--light" >
+    <div class="column column--narrow">
+        <h2 class="module__text ">Contact Form with error validation</h2>
+        <div class="module__text module__text--narrow">
+            @@include('../../includes/wysiwig-short.html')
+        </div>
+
+        <div class="form js-validate js-has-recaptcha">
+            <form>
+                <div class="form__row form__row--5050">
+                    @@include('form-input.html', {
+                        "type" : "text",
+                        "id" : "contact_name",
+                        "label" : "Name: ",
+                        "required" : "required",
+                        "errormsg" : "*Please enter your name",
+                        "class" : "validate--error"
+                    })
+
+                    @@include('form-input.html', {
+                        "type" : "email",
+                        "id" : "contact_email",
+                        "label" : "Email: ",
+                        "required" : "required",
+                        "errormsg" : "*Please enter a valid email address",
+                        "class" : "validate--error"
+                    })
+
+                </div>
+                <div class="form__row form__row--5050">
+
+                    @@include('form-input.html', {
+                        "type" : "text",
+                        "id" : "contact_phone",
+                        "label" : "Phone: ",
+                        "required" : "",
+                        "errormsg" : "*Please enter a valid phone number",
+                        "class" : "validate--error"
+                    })
+
+                    <div class="validate validate--error">
+                        <label for="contact_reason" class="form__label">
+                            <span class="form__labelspan">Enquiry Type:</span>
+                            <select required id="contact_reason">
+                                <option>Reason 1</option>
+                                <option>Reason two which is really pretty detailed actually</option>
+                            </select>
+                            <span class="form__highlight"></span>
+                        </label>
+                        @@include('error.html', {"message" : "*Please select an option"})
+                    </div>
+                </div>
+                @@include('form-textarea.html', {
+                    "errormsg" : "*Please enter a message",
+                    "class" : "validate--error"
+                })
+                
+                @@include('form-checkbox.html')
+
+                <div class="form__row">
+                    @@include('../forms/recaptcha.html', {"id" : "form_unique_id_2"})
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!---- END CONTACT FORM (with error state active) ---->

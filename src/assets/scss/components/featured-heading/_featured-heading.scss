@@ -1,0 +1,108 @@
+/* Component
+   ========================================================================== */
+
+$margin-small: 20px;
+$margin-large: 60px;
+
+.featured-heading {
+  @include critical {
+    @include mq(desktop) {
+      height: calc(100vh - 150px);
+      @include px(min-height, 470px);
+      @include px(max-height, 850px);
+    }
+
+    @include mq(0, desktop) {
+      @include px(padding-bottom, $gridGutterMobile);
+    }
+
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .button {
+    @include critical {
+      @include buttontype('text');
+    }
+  }
+}
+
+.featured-heading__grid {
+  @include critical {
+    position: relative;
+    width: 100%;
+    @include px(max-width, $gridMaxWidth);
+    margin: 0 auto;
+  }
+}
+
+.featured-heading__svg {
+  @include critical {
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    p {
+      display: none;
+    }
+
+    svg {
+      height: 100%;
+      width: auto;
+      path,
+      rect,
+      circle {
+        fill: var(--svgColour);
+      }
+    }
+
+    @include mq(0, desktop) {
+      width: 100%;
+      height: 100vw;
+      @include px(margin-top, $gridGutterMobile);
+
+      svg {
+        position: relative;
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.featured-heading__text {
+  @include critical {
+    @include mq(0, desktop) {
+      @include px(padding, $gridGutterMobile);
+    }
+  }
+}
+
+.featured-heading__headings {
+  @include critical {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.featured-heading__copy {
+  @include critical {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+/* Layouts
+   ========================================================================== */
+
+@import '_brand-circles';
+@import '_insight-circle';
+@import '_ripples';
+@import '_semicircles';
+@import '_seo-circles';
+@import '_social-diamond-circle';
+@import '_split-circles';
+@import '_website-squares';

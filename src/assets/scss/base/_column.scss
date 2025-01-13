@@ -1,0 +1,50 @@
+/*
+
+# Selector
+
+*/
+
+/* Component
+   ========================================================================== */
+
+@include critical {
+  .column {
+    position: relative;
+    width: 100%;
+    @include px(max-width, $gridMaxWidth);
+    margin: 0 auto;
+    @include px(padding, 0px $gridGutter);
+  }
+}
+
+/* Modifiers
+     ========================================================================== */
+
+@include critical {
+  .column.column--mid {
+    @include px(max-width, $gridMaxWidthMid);
+  }
+
+  .column.column--narrow {
+    @include px(max-width, $gridMaxWidthNarrow);
+  }
+}
+/* Media Queries
+   ========================================================================== */
+
+//Tablet and Desktop
+@include mq(tablet) {
+}
+
+//Tablet and Mobile
+@include mq(0, desktop) {
+  @include critical {
+    .column {
+      @include px(padding, 0px $gridGutterMobile);
+    }
+
+    .column.column--nopadding {
+      padding: 0;
+    }
+  }
+}

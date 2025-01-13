@@ -1,0 +1,13 @@
+<!-- sizes : @@sizes -->
+<!-- breakpoint : 0, @@breakpoint -->
+
+<picture class="@@pictureclass">
+
+    @@if(breakpoint){
+        <source media="(min-width:@@breakpoint)" data-srcset="@@image.desktop?format=webp" type="image/webp" />
+        <source media="(min-width:@@breakpoint)" data-srcset="@@image.desktop" type="image/jpeg" />
+    }
+
+    <source srcset="@@image.mobile?format=webp" type="image/webp" />
+    <img src="@@image.mobile?quality=20" data-srcset="@@image.mobile" width="@@width" height="@@height" class="lazyload @@imgclass" alt="IMAGE ALT HERE" data-sizes="auto" />
+</picture>

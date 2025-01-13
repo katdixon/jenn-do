@@ -1,0 +1,596 @@
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+@use 'sass:math';
+
+/* Critical / Deferred
+   ========================================================================== */
+
+@mixin critical {
+  @if $critical {
+    @content;
+  }
+}
+
+@mixin defer {
+  @if $deferred {
+    @content;
+  }
+}
+
+/* Mediaquery
+   ========================================================================== */
+
+@mixin mq($from: false, $to: false) {
+  $width_from: $from;
+  $width_to: $to;
+
+  @if $width_from {
+    @if map-has-key($breakpoints, $from) {
+      $width_from: map-get($breakpoints, $from) + px;
+    }
+  }
+
+  @if $width_to {
+    @if map-has-key($breakpoints, $to) {
+      $width_to: (map-get($breakpoints, $to) - 1) + px;
+    }
+  }
+
+  @if $width_from and $width_to {
+    @media screen and (min-width: $width_from) and (max-width: $width_to) {
+      @content;
+    }
+  } @else if $width_from {
+    @media screen and (min-width: $width_from) {
+      @content;
+    }
+  } @else if $width_to {
+    @media screen and (max-width: $width_to) {
+      @content;
+    }
+  }
+}
+
+/* Calculations
+   ========================================================================== */
+@mixin percentage($value1, $value2) {
+  width: math.div($value1, $value2) * 100%;
+}
+
+/* CSS3
+   ========================================================================== */
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+
+  :-moz-placeholder {
+    @content;
+  }
+
+  ::-moz-placeholder {
+    @content;
+  }
+
+  :-ms-input-placeholder {
+    @content;
+  }
+
+  .placeholder {
+    @content;
+  }
+}
+
+/* Helpers
+   ========================================================================== */
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin module-last-child() {
+  & > *:last-child,
+  & > *:last-child > *:last-child,
+  & > *:last-child > *:last-child > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Rem Fallbacks
+   ========================================================================== */
+
+@function strip-unit($num) {
+  @if $num==auto {
+    @return $num;
+  } @else {
+    @return math.div($num, $num * 0 + 1);
+  }
+}
+
+@mixin px($property, $px-values, $fallback: false) {
+  $rem-values: unquote('');
+
+  @each $value in $px-values {
+    $value: strip-unit($value);
+    @if $value==0 or type-of($value) == 'string' or type-of($value) == 'color' {
+      $rem-values: append($rem-values, $value);
+    } @else {
+      $rem-values: append($rem-values, math.div($value, $baseFontSize) * 1rem);
+    }
+  }
+
+  @if $fallback==true {
+    #{$property}: $px-values;
+  }
+
+  #{$property}: $rem-values;
+}
+
+@mixin fs($px-value) {
+  @include px('font-size', $px-value);
+}
+
+/* Font Clamping
+   ========================================================================== */
+/*
+   Xpx   = minWidth and below
+   Scaled = minWidth - maxWidth
+   Ypx = maxWidth and above
+
+
+   1. Convert to REM
+
+
+   slope = (maxFontSize - minFontSize) / (maxWidth - minWidth)
+   yAxisIntersection = -minWidth * slope + minFontSize
+
+   preferredValue = yAxisIntersection[rem] + (slope * 100)[vw]
+*/
+
+@mixin clamp(
+  $property,
+  $minValuePX,
+  $maxValuePX,
+  $minWidthPX: (map-get($breakpoints, tablet)),
+  $maxWidthPX: $gridMaxWidth
+) {
+  $minValuePX: strip-unit($minValuePX);
+  $maxValuePX: strip-unit($maxValuePX);
+  $minWidthPX: strip-unit($minWidthPX);
+  $maxWidthPX: strip-unit($maxWidthPX);
+
+  $minValue: math.div($minValuePX, $baseFontSize);
+  $maxValue: math.div($maxValuePX, $baseFontSize);
+  $minWidth: math.div($minWidthPX, $baseFontSize);
+  $maxWidth: math.div($maxWidthPX, $baseFontSize);
+
+  $slope: math.div(($maxValue - $minValue), ($maxWidth - $minWidth));
+  $yAxisIntersection: (-$minWidth * $slope) + $minValue;
+
+  #{$property}: clamp(
+    $minValue * 1rem,
+    ($yAxisIntersection * 1rem) + ($slope * 100vw),
+    $maxValue * 1rem
+  );
+}
+
+/* Custom Card Sizes
+    ========================================================================== */
+
+@function vw($size, $viewport: 1350) {
+  @return math.div($size, $viewport) * 100vw;
+}
+
+@mixin casestudy-card($i, $width) {
+  .case-studies__card:nth-child(#{$i}) {
+    .case-studies__image,
+    .case-studies__card-link {
+      @include critical {
+        @include px(max-width, ($width * 1px));
+        width: 100%;
+      }
+
+      @include mq(desktop) {
+        @include critical {
+          width: clamp(300px, (math.div($width, 1350) * 100vw), ($width * 1px));
+        }
+      }
+    }
+  }
+}
+
+/* Right to left
+   ========================================================================== */
+
+@mixin if-ltr {
+  @if $textDirection !=rtl {
+    @content;
+  }
+}
+
+@mixin if-rtl {
+  @if $textDirection==rtl {
+    @content;
+  }
+}
+
+/* Link Helpers
+   ========================================================================== */
+
+@mixin link(
+  $color: $colorText,
+  $hover: null,
+  $focus: null,
+  $active: null,
+  $visited: null
+) {
+  color: $color;
+
+  &:active {
+    @if ($active) {
+      color: $active;
+    } @else {
+      color: $color;
+    }
+  }
+
+  &:visited {
+    @if ($visited) {
+      color: $visited;
+    } @else {
+      color: $color;
+    }
+  }
+
+  &:hover,
+  &:visited:hover {
+    @if ($hover) {
+      color: $hover;
+    } @else {
+      color: darken($color, 10);
+    }
+  }
+
+  &:focus,
+  &:visited:focus {
+    @if ($focus) {
+      color: $focus;
+    } @else {
+      color: darken($color, 20);
+    }
+  }
+
+  &:hover,
+  &:visited:hover,
+  &:hover:focus {
+    @if ($hover) {
+      color: $hover;
+    } @else {
+      color: darken($color, 10);
+    }
+  }
+}
+
+/* Transitions
+   ========================================================================== */
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/* CSS Keyframes
+   ========================================================================== */
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ', '};
+    }
+  }
+
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+/* CSS Prefixes
+   ========================================================================== */
+
+@mixin link-underline($selector, $selector-hover, $width: 85%) {
+  #{$selector} {
+    &::after {
+      content: '';
+      width: $width;
+      @include px(height, 4px);
+      display: block;
+      background-color: $navFontColor;
+      @include px(border-radius, 4px);
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      @include transition(transform 0.3s ease-in-out, opacity 0.3s ease-in-out);
+    }
+  }
+
+  #{$selector-hover} {
+    &::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* CSS Prefixes
+   ========================================================================== */
+
+/// Mixin to prefix several properties at once
+/// @author Hugo Giraudel
+
+@mixin prefix($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+  }
+}
+
+/** --- Example ---------
+
+  @include prefix((
+    column-count: 3,
+    column-gap: 1.5em,
+    column-rule: 2px solid hotpink
+  ), webkit moz);
+
+------------------------ **/
+
+/* Loading Spinner
+   ========================================================================== */
+
+@mixin spinner(
+  $diameter,
+  $strokewidth,
+  $strokecolor,
+  $opacity,
+  $speed,
+  $inline: false
+) {
+  @if $inline==false {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -(($diameter * 0.5) - $strokewidth);
+    margin-left: -(($diameter * 0.5) - $strokewidth);
+  } @else {
+    display: inline-block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin-left: 5px;
+  }
+
+  border: $strokewidth solid $strokecolor;
+  border-top-color: rgba(0, 0, 0, 0);
+
+  width: $diameter - ($strokewidth * 2);
+  height: $diameter - ($strokewidth * 2);
+  opacity: $opacity;
+  border-radius: 50%;
+  animation: loadingSpinner $speed infinite linear;
+  -webkit-animation: loadingSpinner $speed infinite linear;
+}
+
+@keyframes loadingSpinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loadingSpinner {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* Image Hover
+   ========================================================================== */
+
+@mixin imagehover() {
+  background: white;
+  @include transition(opacity 0.1s);
+}
+
+@mixin imagehoverhovered() {
+  opacity: 0.8;
+  @include transition(opacity 0.2s);
+  //    @include animation('border-hover' 0.6s ease);
+}
+
+/* Chevron
+   ========================================================================== */
+@mixin chevron(
+  $size: 10px,
+  $width: 2px,
+  $color: $uiWhite,
+  $display: inline-block
+) {
+  &:after {
+    position: relative;
+    content: '';
+    display: $display;
+    @include px(width, $size);
+    @include px(height, $size);
+    border: $width solid transparent;
+    border-right: $width solid $color;
+    border-bottom: $width solid $color;
+    transform: rotate(45deg);
+    @include transition(all 0.2s);
+    top: -$size * 0.4;
+    @include px(margin-left, $size);
+  }
+}
+
+@mixin chevron-image($width: 15px, $height: 9px, $display: inline-block) {
+  &:after {
+    content: '';
+    display: $display;
+    vertical-align: middle;
+    @include px(width, $width);
+    @include px(height, $height);
+    background: url('/assets/img/svgs/chevron.svg') no-repeat no-repeat center
+      center;
+    background-size: cover;
+    @include transition(transform 0.3s);
+  }
+}
+
+/* Arrows
+   ========================================================================== */
+
+@mixin arrow-image($width: 15px, $height: 9px, $display: inline-block) {
+  &:after {
+    content: '';
+    display: $display;
+    vertical-align: middle;
+    @include px(width, $width);
+    @include px(height, $height);
+    background: url('/assets/img/svgs/chevron.svg') no-repeat no-repeat center
+      center;
+    background-size: cover;
+    @include transition(transform 0.3s);
+  }
+}
+
+/* Ratio
+========================================================================== */
+
+@mixin ratio($width, $height, $important: false, $value: 'padding-top') {
+  @if $important {
+    #{$value}: (math.div($height, $width) * 100) * 1% !important;
+  } @else {
+    #{$value}: (math.div($height, $width) * 100) * 1%;
+  }
+}
+
+/* Hover
+========================================================================== */
+
+/**
+ * Mixin: hover
+ *
+ * This mixin applies hover styles only if the device supports hover interactions.
+ * It uses a media query to check if the device does not have hover capabilities.
+ * If the device supports hover, it applies the styles passed within the mixin.
+ *
+ * Usage:
+ * @include hover {
+ *   // Your hover styles here
+ * }
+ */
+@mixin hover($withFocus: true) {
+  @media not all and (hover: none) {
+    @if withFocus {
+      &:hover,
+      &:focus {
+        @content;
+      }
+    } @else {
+      &:hover {
+        @content;
+      }
+    }
+  }
+}
+
+/* Flex width columns
+   ========================================================================== */
+
+@mixin flex-width($columns: 1, $gap: 0px) {
+  @if $columns==1 {
+    width: 100%;
+  } @else {
+    // calculate width and gap
+    $widthPercentage: math.div(100%, $columns);
+    $gapTotal: math.div($gap * ($columns - 1), $columns);
+
+    // convert px to rem
+    $converted: 0;
+    $value: strip-unit($gapTotal);
+    @if $value==0 or type-of($value) == 'string' or type-of($value) == 'color' {
+      $converted: $value;
+    } @else {
+      $converted: math.div($value, $baseFontSize) * 1rem;
+    }
+
+    // output width property
+    width: calc($widthPercentage - $converted);
+  }
+}

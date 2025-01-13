@@ -1,0 +1,36 @@
+@@include('includes/header.html', {
+    "pageTitle": "Jenn-Do 2025"
+})
+
+@@include('includes/nav.html')
+
+    <main class="JennDo__page">
+        <div class="column" style="padding-top:140px;">
+
+            <h1>Jenn Do</h1>
+            @@include('includes/wysiwig.html')
+
+        </div>
+
+        <!-- 
+            --black: #080b13;
+            --white: #FFFFFF;
+            --tan: #94624f;
+            --grey: #666666;
+            --darkgrey: #1a1e28;
+
+        -->
+
+        @@include('modules/fifty-fifty/fifty-fifty.html', {
+            "imagefirst" : "left",
+            "preheader" : "hello",
+            "title" : "Jenn-Do",
+            "copy" : "<p>This is copy</p>",
+            "buttons" : ["Find out!"],
+            "headingColour" : "white",
+            "textColour" : "grey",
+            "bg" : "darkgrey"
+        })
+    </main><!-- .Wrapper -->
+
+@@include('includes/footer.html')

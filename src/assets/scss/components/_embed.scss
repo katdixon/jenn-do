@@ -1,0 +1,48 @@
+//embed__container
+
+/* Component
+   ========================================================================== */
+
+/* Modifier
+    ========================================================================== */
+
+.embed__container {
+  @include critical {
+    position: relative;
+  }
+}
+
+.embed--force16x9 {
+  .embed__container {
+    @include critical {
+      &:after {
+        content: '';
+        display: block;
+        padding-bottom: 56.25%;
+      }
+
+      iframe {
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        height: 100%;
+        top: 0px;
+      }
+    }
+  }
+}
+
+/* Media Queries
+      ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+}
+
+//Mobile
+@include mq(0, tablet) {
+}

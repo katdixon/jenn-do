@@ -1,0 +1,120 @@
+.our-work {
+  @include critical {
+    --bgColour: $pastelPurple;
+
+    .module__heading {
+      @include px(font-size, 35px);
+      @include clamp('font-size', 25px, 35px);
+      @include px(margin-bottom, 30px);
+    }
+
+    .column {
+      @include px(padding-bottom, 70px);
+    }
+
+    .fullwidth .module__text {
+      @include px(max-width, 630px);
+    }
+  }
+}
+
+ul.our-work__list {
+  @include critical {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+
+    > * {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    @include mq(0, 'desktop') {
+      .case-studies__card {
+
+          @include px(margin-bottom, 30px);
+
+        a {
+          width: 60%;
+          @include px(min-width, 300px);
+        }
+
+        &:nth-child(odd) {
+          a {
+            margin: 0 0 0 auto;
+          }
+        }
+
+        &:nth-child(even) {
+          a {
+            margin: 0 auto 0 0;
+          }
+        }
+
+        &:nth-child(5n + 1) {
+          a {
+            margin: 0 auto;
+            width: 70%;
+          }
+        }
+      }
+    }
+
+    @include mq('desktop') {
+      > * {
+        width: 50%;
+      }
+
+      @include casestudy-card('5n+1', 710);
+      @include casestudy-card('5n+2', 518);
+      @include casestudy-card('5n+3', 543);
+      @include casestudy-card('5n+4', 650);
+      @include casestudy-card('5n+5', 806);
+
+      .case-studies__card .case-studies__image {
+        transform: scale(0.92);
+      }
+
+      .case-studies__card:nth-child(5n + 1) {
+        width: 54%;
+        justify-content: left;
+
+        a {
+          transform: translateX(-3%) translateY(3%);
+        }
+      }
+
+      .case-studies__card:nth-child(5n + 2) {
+        width: 46%;
+
+        a {
+          transform: translateX(-2%);
+        }
+      }
+
+      .case-studies__card:nth-child(5n + 3) {
+        a {
+          transform: translateX(-2%);
+          margin: auto auto 0px auto;
+        }
+      }
+
+      .case-studies__card:nth-child(5n + 4) {
+        a {
+          margin: 0px 0px auto auto;
+          transform: translateX(3%) translateY(-5%);
+        }
+      }
+
+      .case-studies__card:nth-child(5n + 5) {
+        width: 100%;
+        justify-content: center;
+
+        a {
+          transform: translateX(14%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+//image-blocks
+
+/* Component
+   ========================================================================== */
+
+$cardWidth: 266px;
+
+.image-blocks {
+  .button__container {
+    @include critical {
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.image-blocks__column {
+  @include critical {
+    position: relative;
+    @include px(padding, 0px 7px 50px 7px);
+
+    &:first-child {
+      @include px(padding-top, 50px);
+    }
+  }
+}
+
+.image-blocks__list {
+  @include critical {
+    position: relative;
+    list-style: none;
+    padding: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include px(padding-bottom, 10px);
+    margin-bottom: 0;
+  }
+}
+
+li.image-blocks__card {
+  @include critical {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    @include px(padding, 0px 3px 6px 3px);
+  }
+}
+
+.image-blocks__card-inner {
+  @include critical {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include critical {
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+}
+
+.image-blocks__overlay {
+  @include critical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    @include transition(background-color 0.3s);
+  }
+}
+
+.image-blocks__caption {
+  @include critical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    @include px(padding, 10px);
+  }
+
+  p.u-h5 {
+    @include critical {
+      color: $colorTextInverse;
+      margin: 0;
+    }
+  }
+}
+
+/* Modifier
+   ========================================================================== */
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+  .image-blocks .column {
+    @include critical {
+      @include px(padding-bottom, 60px);
+    }
+  }
+
+  .image-blocks__column {
+    @include critical {
+      @include px(padding, 0px 10px 80px 10px);
+
+      &:first-child {
+        @include px(padding-top, 100px);
+      }
+    }
+  }
+
+  li.image-blocks__card {
+    @include critical {
+      @include px(width, $cardWidth);
+      flex-shrink: 0;
+      flex-grow: 0;
+      @include px(padding, 0px 10px 20px 10px);
+    }
+  }
+
+  .image-blocks .image-blocks__list {
+    @include critical {
+      max-width: ($cardWidth * 5);
+    }
+  }
+
+  .image-blocks--4 .image-blocks__list {
+    @include critical {
+      max-width: ($cardWidth * 4);
+    }
+  }
+
+  .image-blocks--3 .image-blocks__list {
+    @include critical {
+      max-width: ($cardWidth * 3);
+    }
+  }
+}
+
+//Mobile Small
+@include mq(0, tablet) {
+  .image-blocks {
+    @include critical {
+      text-align: left;
+    }
+  }
+}

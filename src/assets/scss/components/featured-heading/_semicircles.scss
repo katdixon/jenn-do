@@ -1,0 +1,61 @@
+.featured-heading--semicircles {
+  @include mq(desktop) {
+    .featured-heading__grid {
+      @include critical {
+        @include clamp(margin-top, $margin-small * 0.5, $margin-large * 0.5);
+        @include clamp(margin-bottom, $margin-small * 0.5, $margin-large * 0.5);
+      }
+    }
+
+    .featured-heading__svg {
+      @include critical {
+        position: absolute;
+        width: calc(50% - $margin-small);
+        @include px(left, $margin-small);
+
+        svg {
+          max-width: 100%;
+          position: absolute;
+          @include px(right, 0);
+        }
+      }
+    }
+
+    .featured-heading__copy {
+      @include critical {
+        @include px(max-width, 520px);
+      }
+    }
+
+    .featured-heading__text {
+      @include critical {
+        position: absolute;
+        z-index: 20;
+        right: 0;
+        bottom: 5%;
+        width: 50%;
+        @include px(padding-left, $gridGutter);
+        @include px(padding-right, $gridGutter);
+      }
+    }
+  }
+
+  @include mq(0, desktop) {
+    .featured-heading__svg {
+      @include critical {
+        text-align: right;
+        height: 80vw;
+        svg {
+          position: relative;
+          @include px(margin-right, $gridGutterMobile);
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        @include px(margin-top, -$gridGutterMobile);
+      }
+    }
+  }
+}

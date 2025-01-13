@@ -1,0 +1,85 @@
+/* Component
+   ========================================================================== */
+.glide__arrow {
+  @include critical {
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    @include px(width, 44px);
+    @include px(height, 44px);
+    @include px(margin-top, -22px);
+    background: $uiWhite;
+    border: none;
+    display: block;
+    @include transition(transform 0.2s);
+  }
+
+  @include defer {
+    &:after,
+    &:before {
+      content: '';
+      background-color: $uiBlack;
+      @include px(width, 15px);
+      @include px(height, 3px);
+      top: 20px;
+      position: absolute;
+      display: block;
+    }
+  }
+
+  &.glide__arrow--left {
+    @include critical {
+      @include px(left, $gridGutterMobile);
+    }
+
+    @include defer {
+      &::before {
+        top: 16px;
+        left: 13px;
+        transform: rotate(-42deg);
+      }
+      &::after {
+        top: 24px;
+        left: 13px;
+        transform: rotate(42deg);
+      }
+    }
+  }
+
+  &.glide__arrow--right {
+    @include critical {
+      @include px(right, $gridGutterMobile);
+    }
+
+    @include defer {
+      &::before {
+        top: 16px;
+        right: 13px;
+        transform: rotate(42deg);
+      }
+      &::after {
+        top: 24px;
+        right: 13px;
+        transform: rotate(-42deg);
+      }
+    }
+  }
+  @include defer {
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+// Mobile
+@include mq(0, tablet) {
+}

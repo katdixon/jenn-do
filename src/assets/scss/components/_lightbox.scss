@@ -1,0 +1,140 @@
+.lightbox {
+  @include defer {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    height: 100vh;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    padding: 45px 25px 25px 25px;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.2s;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.fixfixed {
+  @include defer {
+    position: absolute !important;
+  }
+}
+
+.lightbox[aria-hidden='true'] {
+  @include critical {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.lightbox[aria-hidden='false'] {
+  @include critical {
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+  }
+}
+
+.lightbox__content {
+  @include defer {
+    color: $colorTextInverse;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    @include px(max-width, $gridMaxWidth);
+    padding: 0;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s;
+    width: 100%;
+    max-height: 100%;
+    max-height: calc(100% - 60px);
+    -webkit-box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.lightbox__content:focus {
+  @include defer {
+    outline: 0;
+  }
+}
+
+.lightbox__content > * {
+  @include defer {
+    overflow: auto;
+    max-height: calc(100vh - 120px);
+  }
+}
+
+.lightbox__close {
+  @include defer {
+    position: absolute;
+    display: block;
+
+    @include px(width, 48px);
+    @include px(height, 48px);
+
+    @include px(top, 20px);
+    @include px(right, 20px);
+
+    background: red;
+    border: 2px solid red;
+    z-index: 200;
+    border-radius: 50%;
+    @include transition(background-color 0.3s);
+
+    &:before,
+    &:after {
+      position: absolute;
+
+      content: '';
+      display: block;
+      top: 50%;
+      left: 10px;
+      @include px(margin-top, -1px);
+
+      @include px(width, 24px);
+      @include px(height, 2px);
+
+      background-color: $uiBlack;
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      background: lime;
+    }
+  }
+}
+
+.Lightbox[aria-hidden='false'] .lightbox__content {
+  @include critical {
+    transform: scale(1);
+  }
+}
+
+@include mq(0, tablet) {
+  .lightbox {
+    @include defer {
+      width: 100%;
+      display: block;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  .lightbox__content {
+    @include defer {
+      height: 100%;
+    }
+  }
+}

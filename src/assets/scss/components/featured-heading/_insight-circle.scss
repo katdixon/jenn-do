@@ -1,0 +1,106 @@
+.featured-heading--insight-circle {
+  //Desktop Up
+  @include mq(desktop) {
+    @include critical {
+      min-height: 0;
+    }
+
+    .featured-heading__grid {
+      @include critical {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        @include clamp(padding-top, $margin-small, $margin-large);
+        @include clamp(padding-bottom, $margin-small, $margin-large);
+        @include clamp(padding-left, $margin-small, $margin-large);
+        @include clamp(padding-right, $margin-small, $margin-large);
+      }
+    }
+
+    .featured-heading__text {
+      @include critical {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .featured-heading__svg {
+      @include critical {
+        position: absolute;
+        left: 0;
+        top: -15%;
+        height: 120%;
+        @include px(width, 1100px);
+        max-width: 80%;
+
+        display: block;
+        transform: translateX(-10%);
+
+        svg {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        position: absolute;
+        left: 5%;
+        bottom: 66%;
+        width: 60%;
+
+        .u-h2 {
+          @include clamp(
+            margin-bottom,
+            $margin-small * 0.5,
+            $margin-large * 0.5
+          );
+        }
+      }
+    }
+
+    .featured-heading__copy {
+      @include critical {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 46%;
+        min-height: 43%;
+        @include px(padding-top, $margin-large * 0.5);
+        @include px(padding-left, $margin-large * 0.5);
+      }
+    }
+  }
+
+  @include mq(0, desktop) {
+    .featured-heading__svg {
+      @include critical {
+        height: 90vw;
+        transform: translateX(-14%);
+
+        svg {
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        height: 36vw;
+        position: absolute;
+        width: 73vw;
+        left: 20vw;
+        top: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

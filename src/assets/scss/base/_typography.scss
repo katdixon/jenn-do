@@ -1,0 +1,259 @@
+/*
+
+# Typography
+
+*/
+
+/* Fonts
+   ========================================================================== */
+
+/* Base
+   ========================================================================== */
+@use 'sass:math';
+
+html {
+  @include critical {
+    font-size: ($baseFontSize * 1px);
+    font-family: $baseFontFamily;
+    line-height: $baseLineHeight;
+    color: $colorText;
+    font-weight: $baseFontWeight;
+    direction: $textDirection;
+    @include px(letter-spacing, 1px);
+  }
+}
+
+body {
+  @include critical {
+    font-family: $baseFontFamily;
+  }
+}
+
+/* Headings
+   ========================================================================== */
+
+h1,
+.u-h1,
+h2,
+.u-h2,
+h3,
+.u-h3,
+h4,
+.u-h4,
+h5,
+.u-h5,
+h6,
+.u-h6 {
+  @include critical {
+    font-family: $headingFontFamily;
+    line-height: $headingLineHeight;
+    color: $uiWhite;
+    font-weight: $headingFontWeight;
+    text-transform: $headingTransform;
+    @include px(margin-bottom, 20px);
+    letter-spacing: 0;
+  }
+}
+
+h1,
+*.u-h1 {
+  @include critical {
+    @include px(font-size, $largeHeading);
+    line-height: 0.9;
+    @include clamp('font-size', $largeHeading_mobile, $largeHeading);
+  }
+}
+
+h2,
+*.u-h2 {
+  @include critical {
+    @include px(font-size, $largeHeading);
+    line-height: 0.9;
+    @include clamp('font-size', $largeHeading_mobile, $largeHeading);
+  }
+}
+
+h3,
+*.u-h3 {
+  @include critical {
+    @include px(font-size, $headingH3);
+    @include clamp('font-size', $headingH3_mobile, $headingH3);
+  }
+}
+
+h4,
+*.u-h4 {
+  @include critical {
+    @include px(font-size, $headingH4);
+    @include clamp('font-size', $headingH4_mobile, $headingH4);
+  }
+}
+
+h5,
+*.u-h5 {
+  @include critical {
+    @include px(font-size, $headingH5);
+    @include clamp('font-size', $headingH5_mobile, $headingH5);
+  }
+}
+
+h6,
+*.u-h6 {
+  @include critical {
+    @include px(font-size, $baseFontSize * 1px);
+  }
+}
+
+p {
+  @include critical {
+    @include px(font-size, $baseFontSize * 1px);
+    @include px(margin, 0px 0px 20px 0px);
+  }
+}
+
+*.u-body {
+  @include critical {
+    font-size: ($baseFontSize * 1px);
+    font-family: $baseFontFamily;
+    line-height: $baseLineHeight;
+    font-weight: $baseFontWeight;
+    direction: $textDirection;
+  }
+}
+
+*.u-large-body,
+*.u-large-body > * {
+  @include critical {
+    @include px(font-size, $largeBodyCopy);
+    @include clamp('font-size', $largeBodyCopy_mobile, $largeBodyCopy);
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--headingColour);
+  }
+}
+
+*.u-preheader {
+  @include critical {
+    font-family: $headingFontFamily;
+    @include px(font-size, $preHeaderSize);
+    @include clamp('font-size', $preHeaderSize_mobile, $preHeaderSize);
+
+    text-transform: uppercase;
+    line-height: $headingLineHeight;
+    color: $brandTan;
+    @include px(letter-spacing, 4px);
+
+    @include px(margin, 0px 0px 4px 0px);
+    position: relative;
+  }
+}
+
+ul,
+ol {
+  @include critical {
+    font-size: inherit;
+
+    li {
+      @include px(padding-left, 5px);
+      @include px(margin-bottom, 5px);
+      font-size: inherit;
+    }
+  }
+}
+
+b,
+strong {
+  @include critical {
+    font-weight: $baseBoldWeight;
+  }
+}
+
+p, a, ul, li, ol {
+  @include critical {
+    font-optical-sizing: auto;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+  }
+}
+
+/* Links
+   ========================================================================== */
+
+a {
+  @include critical {
+    background: transparent;
+    color: inherit;
+  }
+
+  @include defer {
+    @include transition(
+      color 0.3s ease-in-out,
+      background-color 0.3s,
+      text-decoration-color 0.3s
+    );
+  }
+}
+
+a,
+button {
+  @include defer {
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: thin dotted $brandTan;
+    }
+  }
+}
+
+/* Text Selection
+   ========================================================================== */
+@include defer {
+  ::-moz-selection {
+    background: rgba($brandTan, 0.6);
+  }
+  ::selection {
+    background: rgba($brandTan, 0.6);
+  }
+}
+/* hr
+   ========================================================================== */
+
+hr {
+  @include critical {
+    background-color: $colorHR;
+    border: 0px solid transparent;
+    height: 1px;
+    margin: 0;
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Mobile
+@include mq(0, tablet) {
+  @include critical {
+    .form {
+      @include px(font-size, $baseFontSize_mobile);
+      @include px(line-height, $baseLineHeight_mobile);
+    }
+
+    p {
+      @include px(font-size, $baseFontSize_mobile * 1px);
+      @include px(line-height, $baseLineHeight_mobile);
+    }
+
+    ul li,
+    ol li {
+      @include px(font-size, $baseFontSize_mobile * 1px);
+      @include px(line-height, $baseLineHeight_mobile);
+    }
+
+    *.u-preheader + *.module__heading {
+      @include px(margin-top, 10px);
+    }
+  }
+}

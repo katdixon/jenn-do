@@ -1,0 +1,25 @@
+<div class="accordion" data-type="@@type">
+    <div class="accordion__section"  data-closemobile="@@closedmobile">
+        <button type="button" class="accordion__expander u-showMobile">                    
+            <h5>@@sectiontitle</h5>
+        </button>
+
+        @@if(type == 'mobileonly'){
+            <p class="u-hideMobile u-h5"><a href="/">@@sectiontitle</a></p>
+        }
+
+        <div class="accordion__panel" aria-hidden="@@closeddesktop">
+
+            @@if(mobilelink){
+                <!-- TODO: this is only displayed on mobile and links to the landing page -->
+                <a href="/" class="u-showMobile">@@mobilelink</a>
+            }
+    
+
+            @@textcontent
+            @@for(var i = 0; i < links.length; i++) {
+                <a href="/">`+links[i]+`</a>
+            }
+        </div>
+    </div>
+</div>

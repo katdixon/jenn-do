@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+/* Visibility
+   ========================================================================== */
+
+.u-hide,
+.u-hideSearch {
+  @include critical {
+    display: none !important;
+  }
+}
+
+.u-show,
+.u-block {
+  @include critical {
+    display: block !important;
+  }
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.u-hidden {
+  @include critical {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.u-visuallyHidden {
+  @include critical {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.u-invisible {
+  @include critical {
+    visibility: hidden;
+  }
+}
+
+/*
+ * Image replacement
+ */
+
+.u-ir {
+  @include critical {
+    font: 0/0 a;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+  }
+}
+
+/* Visibility - Screen res dependant
+   ========================================================================== */
+@include critical {
+  @include mq(desktop) {
+    .u-hideDesktop {
+      display: none !important;
+    }
+  }
+
+  @include mq(0, desktop) {
+    .u-showDesktop {
+      display: none !important;
+    }
+  }
+
+  //---
+
+  @include mq(tablet) {
+    .u-showMobile {
+      display: none !important;
+    }
+  }
+
+  @include mq(0, tablet) {
+    .u-hideMobile {
+      display: none !important;
+    }
+  }
+}
+/* Position
+   ========================================================================== */
+
+.u-square {
+  @include critical {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    > * {
+      position: absolute;
+    }
+
+    &.js-startAnimation {
+      @include transition(transform 0.4s);
+      transform: scale(0.8);
+    }
+
+    &.scrolled {
+      transform: scale(1);
+    }
+  }
+}
+
+/* Text
+   ========================================================================== */
+
+@include critical {
+  .u-textCenter {
+    text-align: center !important;
+  }
+
+  .u-textLeft {
+    text-align: left !important;
+  }
+
+  .u-textRight {
+    text-align: right !important;
+  }
+}
+
+/* Image
+   ========================================================================== */
+
+.u-imageCenteredContainer {
+  @include critical {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.u-imageCentered {
+  @include critical {
+    position: absolute !important;
+    top: -9999px !important;
+    bottom: -9999px !important;
+    left: -9999px !important;
+    right: -9999px !important;
+    margin: auto !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: none !important;
+    width: auto !important;
+  }
+}
+
+.u-imageCentered--100pc {
+  @include critical {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@mixin objectfit {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  object-fit: cover;
+}
+
+.u-objectFit {
+  @include critical {
+    @include objectfit();
+  }
+}
+
+/* Overrides
+   ========================================================================== */
+
+.u-noMarginBottom {
+  @include critical {
+    margin-bottom: 0px !important;
+  }
+}
+
+/* Javascript
+   ========================================================================== */
+.no-js .u-hide-nojs {
+  @include critical {
+    display: none !important;
+  }
+}
+.js .u-hide-js {
+  @include critical {
+    display: none !important;
+  }
+}
+
+/* No Scroll
+   ========================================================================== */
+
+body.noscroll,
+html.noscroll {
+  @include critical {
+    overflow: hidden !important;
+    position: relative;
+    height: 100%;
+    height: 100vh;
+  }
+}
+
+@include mq(0, desktop) {
+  body.noscroll-tablet,
+  html.noscroll-tablet {
+    @include critical {
+      overflow: hidden !important;
+      position: relative;
+      height: 100%;
+      height: 100vh;
+    }
+  }
+}
+
+@include mq(0, tablet) {
+  body.noscroll-mobile,
+  html.noscroll-mobile,
+  body.noscroll,
+  html.noscroll {
+    @include critical {
+      overflow: hidden !important;
+      position: fixed;
+      height: 100%;
+      height: 100vh;
+
+      webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+/* Link Styles
+   ========================================================================== */
+
+code {
+  @include critical {
+    background-color: #eee;
+    border-radius: 3px;
+    padding: 1px 2px;
+    line-height: 1.3;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+}

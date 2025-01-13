@@ -1,0 +1,67 @@
+/* Component
+   ========================================================================== */
+
+/* Media Queries
+   ========================================================================== */
+
+.cursor {
+  @include critical {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+
+    @include px(width, 0px);
+    @include px(height, 0px);
+
+    @include px(margin-left, -6px);
+    @include px(margin-top, -6px);
+
+    border-radius: 50%;
+    z-index: 11000;
+    background: white;
+    mix-blend-mode: exclusion;
+    @include transition(
+      margin-left 0.3s,
+      margin-right 0.3s,
+      width 0.3s,
+      height 0.3s
+    );
+  }
+}
+
+.cursor--hover {
+  @include defer {
+    @include px(width, 30px);
+    @include px(height, 30px);
+
+    @include px(margin-left, -15px);
+    @include px(margin-top, -15px);
+  }
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+}
+
+//Tablet Down
+@include mq(0, desktop) {
+  // enable cursor on mobile & tablet
+  a,
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    cursor: pointer;
+  }
+
+  .cursor {
+    @include critical {
+      display: none;
+    }
+  }
+}
+
+//Mobile
+@include mq(0, tablet) {
+}

@@ -1,0 +1,37 @@
+<!------ START FULL WIDTH IMAGE ------>
+<section class="module fullwidth-image">
+    <div @@class>
+
+        @@if(article == ""){
+            @@include('../includes/slimsy.html', {
+                "image" : {
+                    "desktop" : "/assets/img/temp/fullwidth-image/1-desktop.jpg", 
+                    "mobile" : "/assets/img/temp/fullwidth-image/1-mobile.jpg"
+                },
+                "width" : "1500",
+                "height" : "537",
+                "breakpoint" : "801px",
+                "pictureclass" : "",
+                "imgclass" : "",
+                "sizes" : "360x244,1500x537"
+            })
+        }
+
+        @@if(article != ""){
+            @@include('../includes/slimsy.html', {
+                "image" : {
+                    "desktop" : "/assets/img/temp/fullwidth-image/article.jpg", 
+                    "mobile" : "/assets/img/temp/fullwidth-image/article.jpg"
+                },
+                "width" : "956",
+                "height" : "537",
+                "breakpoint" : "",
+                "pictureclass" : "",
+                "imgclass" : "",
+                "sizes" : "956x537"
+            })
+        }
+
+    </div>
+</section>
+<!------ END FULL WIDTH IMAGE ------>

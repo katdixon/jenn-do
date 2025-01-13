@@ -1,0 +1,174 @@
+/*
+
+# Selector
+
+*/
+
+//background colour
+//spotlight colour
+//text colour
+//spotlight text colour
+
+/* Component
+   ========================================================================== */
+$spotlightRadius: 40vh;
+$spotlightRadiusMobile: 30vw;
+$spotlightPosition: 50% 52%;
+
+.spotlight-hero {
+  @include critical {
+    --slBG: var(--brandWatermelon);
+    --slText: var(--pastelTeal);
+    --headingColour: var(--colorText);
+    --bgColour: var(--brandGrey);
+
+    height: calc(100vh - 60px);
+    @include px(min-height, 470px);
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    .column {
+      position: relative;
+      height: 100%;
+    }
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    @include mq(0, tablet) {
+      height: calc(70vh - 60px);
+    }
+  }
+}
+
+.spotlight-hero__heading {
+  @include critical {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.spotlight-hero__part1 {
+  @include critical {
+    @include clamp('font-size', 24px, 80px);
+    color: var(--headingColour);
+  }
+}
+
+.spotlight-hero__part2 {
+  @include critical {
+    @include clamp('font-size', 68px, 196px);
+    color: var(--headingColour);
+  }
+}
+
+.spotlight-hero__background {
+  @include critical {
+    height: 100%;
+    background-color: var(--bgColour);
+    @include px(padding-top, 50px);
+  }
+}
+
+.spotlight-hero__spotlight {
+  @include critical {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s;
+    background-color: var(--slBG);
+    clip-path: circle($spotlightRadius at $spotlightPosition);
+    @include px(padding-top, 50px);
+
+    @include mq(0, tablet) {
+      clip-path: circle($spotlightRadiusMobile at $spotlightPosition);
+    }
+  }
+
+  @include defer {
+    animation: changeBackgroundColors 25s infinite 2s;
+    @include transition(clip-path 1s ease-out);
+  }
+
+  .spotlight-hero__part2 {
+    @include critical {
+      color: var(--slText);
+    }
+  }
+}
+
+.spotlight-hero__spotlight--loading .spotlight-hero__spotlight {
+  @include critical {
+    @include mq(0, tablet) {
+      animation: growCircleMobile 1s ease-in-out forwards;
+    }
+
+    @include mq(tablet) {
+      animation: growCircle 1s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes growCircle {
+  0% {
+    clip-path: circle(0vh at $spotlightPosition);
+  }
+  100% {
+    clip-path: circle($spotlightRadius at $spotlightPosition);
+  }
+}
+
+@keyframes growCircleMobile {
+  0% {
+    clip-path: circle(0vh at $spotlightPosition);
+  }
+  100% {
+    clip-path: circle($spotlightRadiusMobile at $spotlightPosition);
+  }
+}
+
+@keyframes changeBackgroundColors {
+  0% {
+    background-color: var(--brandWatermelon);
+  }
+  10% {
+    background-color: var(--brandDarkOrange);
+  }
+  20% {
+    background-color: var(--brandOrange);
+  }
+  30% {
+    background-color: var(--brandYellow);
+  }
+  40% {
+    background-color: var(--brandGreen);
+  }
+  50% {
+    background-color: var(--brandTeal);
+  }
+  60% {
+    background-color: var(--brandBlue);
+  }
+  70% {
+    background-color: var(--brandNavy);
+  }
+  80% {
+    background-color: var(--brandPurple);
+  }
+  90% {
+    background-color: var(--brandMagenta);
+  }
+  100% {
+    background-color: var(--brandWatermelon);
+  }
+}

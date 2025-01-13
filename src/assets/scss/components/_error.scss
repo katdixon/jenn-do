@@ -1,0 +1,62 @@
+/* Component
+   ========================================================================== */
+
+.validate {
+  @include critical {
+    position: relative;
+  }
+}
+
+.validate__msg {
+  @include critical {
+    display: none;
+  }
+
+  @include defer {
+    position: relative;
+    color: $uiError;
+    line-height: 1.6;
+    display: block;
+    z-index: 10;
+
+    white-space: nowrap;
+    text-align: right;
+    @include px(font-size, 14px);
+  }
+}
+
+.validate--error {
+  @include defer {
+    .validate__msg {
+      display: block;
+    }
+
+    .form__highlight:before {
+      background-color: $uiError;
+    }
+  }
+}
+
+p.form__error-message,
+ul.form__error-list {
+  @include defer {
+    color: $uiError;
+    @include px(font-size, 14px);
+    line-height: 1.4;
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Up
+@include mq(tablet) {
+}
+
+// Mobile
+@include mq(0, tablet) {
+}

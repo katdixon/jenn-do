@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/* Box sizing
+   ========================================================================== */
+@include critical {
+  html {
+    box-sizing: border-box;
+    background: $colorSiteBG;
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  body {
+    direction: $textDirection;
+    background: $colorSiteBG;
+  }
+
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  /* Margins
+   ========================================================================== */
+
+  // Maybe don't repeat headings here
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hgroup,
+  ul,
+  ol,
+  dl,
+  blockquote,
+  p,
+  address,
+  table,
+  fieldset,
+  figure,
+  pre {
+    @include px('margin', 0 0 $baseLineHeight 0);
+  }
+
+  // Nested lists
+  ul ul,
+  ol ol {
+    margin-bottom: 0;
+  }
+
+  ol {
+    @include px(padding-left, 30px);
+
+    li {
+      @include px(margin-bottom, 15px);
+      @include px(padding-left, 10px);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+//Mobile
+@include mq(0, tablet) {
+  body {
+    @include critical {
+      overflow-x: hidden;
+    }
+  }
+}

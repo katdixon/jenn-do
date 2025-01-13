@@ -1,0 +1,69 @@
+.featured-heading--social-diamond-circle {
+  //Desktop Up
+  @include mq(desktop) {
+    .featured-heading__grid {
+      @include critical {
+        @include clamp(margin-top, $margin-small * 0.5, $margin-large * 0.5);
+        @include clamp(margin-bottom, $margin-small * 0.5, $margin-large * 0.5);
+      }
+    }
+
+    .featured-heading__svg {
+      @include critical {
+        position: absolute;
+        right: 0;
+
+        svg {
+          max-width: 100%;
+          position: absolute;
+          @include px(right, -$gridGutter);
+        }
+      }
+    }
+
+    .featured-heading__copy {
+      @include critical {
+        @include px(max-width, 520px);
+      }
+    }
+
+    .featured-heading__text {
+      @include critical {
+        position: absolute;
+        z-index: 20;
+        left: 0;
+        bottom: 14%;
+        width: 50%;
+        @include px(padding-left, $gridGutter);
+      }
+    }
+  }
+
+  @include mq(0, desktop) {
+    .featured-heading__svg {
+      @include critical {
+        height: 60vw;
+        text-align: right;
+        svg {
+          width: 80%;
+          height: auto;
+          transform: translateX(40%);
+        }
+      }
+    }
+
+    .featured-heading__headings {
+      @include critical {
+        position: absolute;
+        @include px(top, $gridGutterMobile);
+        @include px(left, $gridGutterMobile);
+        height: 60vw;
+        width: 65vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+    }
+  }
+}

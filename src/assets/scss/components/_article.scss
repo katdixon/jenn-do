@@ -1,0 +1,267 @@
+/* Component
+   ========================================================================== */
+
+// latest articles flex variables
+$articleColumnsDesktop: 3;
+$articleGapDesktop: 56px;
+
+$articleColumnsTablet: 2;
+$articleGapTablet: 36px;
+
+$articleColumnsMobile: 1;
+$articleGapMobile: 64px;
+
+/* Modifier
+      ========================================================================== */
+
+.PrettyPragmatic__listing {
+  @include critical {
+    .fullwidth .module__heading,
+    .fullwidth .module__text {
+      max-width: 100%;
+    }
+
+    .fullwidth.module .column {
+      @include px(padding-top, 60px);
+      @include px(padding-bottom, 50px);
+    }
+  }
+}
+
+.PrettyPragmatic__article {
+  @include critical {
+    .padded-bg {
+      padding: 0;
+    }
+
+    .column.column--narrow {
+      @include px(max-width, $gridMaxWidthNarrowArticle);
+    }
+
+    .module .column {
+      @include px(padding-top, 20px);
+      @include px(padding-bottom, 20px);
+    }
+
+    .banner .module__heading.u-h1 {
+      @include px(font-size, 40px);
+      @include clamp('font-size', 25px, 40px);
+
+      i-pp,
+      b-pp {
+        @include px(font-size, 62px);
+        @include clamp('font-size', 39px, 62px);
+      }
+    }
+
+    .fullwidth {
+      h1.u-h3,
+      h2.u-h3 {
+        @include px(font-size, $headingH3);
+        @include clamp('font-size', $headingH3_mobile, $headingH3);
+      }
+
+      h3.u-h3,
+      p.u-h3 {
+        @include px(font-size, 23px);
+        @include clamp('font-size', 17px, 23px);
+      }
+    }
+  }
+}
+
+.article__details {
+  @include critical {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include px(padding-top, 20px);
+
+    li {
+      vertical-align: middle;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      white-space: nowrap;
+      line-height: 1.1;
+      @include px(margin, 0px 20px 5px 0px);
+    }
+
+    li > * {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    svg {
+      @include px(margin-right, 5px);
+    }
+  }
+}
+
+.article__video .video-embed {
+  @include critical {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 56.25%;
+    }
+  }
+}
+
+.article__image {
+  @include critical {
+    picture,
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.article-card {
+  @include critical {
+    text-decoration: none;
+  }
+
+  @include defer {
+    &:hover {
+      img {
+        transform: scale(1.08);
+      }
+
+      .arrow {
+        transform: translateX(20px);
+      }
+    }
+  }
+}
+
+.article-card__image {
+  @include critical {
+    padding-bottom: 72%; // aspect ratio
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    @include px(border-top-right-radius, 110px);
+  }
+
+  @include defer {
+    img {
+      @include transition(transform 0.5s $elasticAnimate);
+    }
+  }
+}
+
+.article-card__content {
+  @include critical {
+    @include px(padding, 5px 1px 10px 1px);
+  }
+}
+
+.article-card__title {
+  @include critical {
+    @include px(font-size, 23px);
+    @include px(line-height, 31px);
+    display: flex;
+    color: $colorText;
+
+    .arrow {
+      @include px(padding-top, 4px);
+      @include px(padding-right, 25px);
+      color: $colorText;
+    }
+
+    > :first-child {
+      flex: 1;
+    }
+  }
+
+  @include defer {
+    .arrow {
+      @include transition(transform 0.5s $elasticAnimate);
+    }
+  }
+}
+
+.latest-articles {
+  @include critical {
+    .latest-articles__list {
+      padding: 0;
+      @include px(padding-top, 60px);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      @include px(gap, $articleGapDesktop);
+    }
+
+    .article-card {
+      @include flex-width($articleColumnsDesktop, $articleGapDesktop);
+    }
+  }
+}
+
+/* Media Queries
+      ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+  .PrettyPragmatic__article {
+    .module .column {
+      @include critical {
+        @include px(padding-top, 40px);
+        @include px(padding-bottom, 40px);
+      }
+    }
+  }
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+  .PrettyPragmatic__listing {
+    .fullwidth {
+      @include critical {
+        text-align: center;
+      }
+    }
+  }
+}
+
+//Tablet and Desktop
+@include mq(tablet, desktop) {
+  .latest-articles {
+    @include critical {
+      .latest-articles__list {
+        @include px(gap, $articleGapTablet);
+      }
+
+      .article-card {
+        @include flex-width($articleColumnsTablet, $articleGapTablet);
+      }
+    }
+  }
+}
+
+//Mobile
+@include mq(0, tablet) {
+  .banner__content .u-h1 {
+    @include critical {
+      @include px(font-size, 40px);
+    }
+  }
+
+  .latest-articles {
+    @include critical {
+      .latest-articles__list {
+        @include px(gap, $articleGapMobile);
+      }
+
+      .article-card {
+        @include flex-width($articleColumnsMobile, $articleGapMobile);
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+/* Themes
+    ========================================================================== */
+
+/* Classes - Background
+   ========================================================================== */
+
+/* Text Links
+   ========================================================================== */
+
+.module__text {
+  p > a,
+  a {
+    @include critical {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      white-space: nowrap;
+      font-weight: 500;
+
+      &::before {
+        content: '';
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include px(height, 4px);
+        background-color: rgba($brandTan, 0.6);
+        z-index: -1;
+        transform: translateX(4px) translateY(0px);
+      }
+    }
+
+    @include defer {
+      &::before {
+        @include px(border-radius, 2px);
+        @include transition(
+          background-color 0.3s,
+          height 0.3s,
+          transform 0.3s,
+          width 0.3s,
+          left 0.3s
+        );
+      }
+    }
+  }
+
+  @include defer {
+    p > a:hover,
+    a:hover {
+      &::before {
+        height: 100%;
+        transform: none;
+        left: -3px;
+        width: calc(100% + 6px);
+        transform: translateY(2px);
+        background-color: rgba($brandTan, 0.3);
+      }
+    }
+  }
+}
+
+.module__background {
+  @include critical {
+    background-color: var(--bgColour);
+  }
+}
+
+.u-h1.module__heading,
+.u-h2.module__heading {
+  @include critical {
+    color: var(--headingColour);
+  }
+}
+
+.module__text > p:last-child,
+.module__text > div:last-child > p:last-child {
+  //because MS Word is a ****
+  @include critical {
+    margin-bottom: 0;
+  }
+}
+
+/* Modifiers
+   ========================================================================== */

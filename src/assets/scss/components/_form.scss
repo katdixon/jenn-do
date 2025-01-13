@@ -1,0 +1,382 @@
+/* Component
+   ========================================================================== */
+
+.form {
+  @include critical {
+    @include px(padding-top, 30px);
+
+    @include placeholder {
+      color: rgba($colorText, 0.8);
+    }
+  }
+
+  label {
+    @include critical {
+      position: relative;
+      line-height: 1;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
+
+  input,
+  select {
+    @include critical {
+      display: block;
+      background-color: transparent !important;
+      @include px(height, 38px);
+      @include px(line-height, 38px);
+      @include px(padding-top, 6px);
+      width: 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      position: relative;
+      z-index: 5;
+      border: none;
+      color: $colorText;
+    }
+
+    &:focus {
+      @include defer {
+        outline: none;
+      }
+    }
+  }
+
+  select {
+    @include critical {
+      color: $colorText;
+      -webkit-appearance: none;
+      appearance: none;
+      padding: 2px;
+
+      background-image: url('/assets/img/svgs/select-arrow.svg');
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 50%;
+    }
+    option {
+      @include critical {
+        background-color: $uiWhite;
+        color: $colorText;
+      }
+    }
+
+    option:disabled {
+      @include critical {
+        display: none;
+      }
+    }
+  }
+
+  label textarea {
+    @include critical {
+      flex-grow: 1;
+      position: relative;
+      z-index: 5;
+      display: block;
+      @include px(height, 88px);
+      line-height: 1.6;
+      @include px(padding, 0px);
+      @include px(margin-bottom, 28px);
+      width: 100%;
+      background-color: transparent !important;
+      border: none;
+      color: $colorText;
+    }
+
+    &:focus {
+      @include defer {
+        outline: none;
+      }
+    }
+  }
+}
+
+.form__row {
+  @include critical {
+    @include px(margin-bottom, 30px);
+    overflow: hidden;
+  }
+}
+
+.form__row--5050 {
+  @include critical {
+    margin-bottom: 0px;
+
+    > * {
+      @include px(margin-bottom, 20px);
+      overflow: hidden;
+    }
+  }
+}
+
+.form__row--newsletter {
+  @include critical {
+    position: relative;
+    @include px(top, -20px);
+  }
+}
+
+.form--datacapture .form__row {
+  @include critical {
+    width: 100%;
+    @include px(max-width, 460px);
+  }
+}
+.form__label {
+  @include critical {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    @include px(padding-bottom, 5px);
+    @include px(margin-bottom, (1.6px * $baseFontSize));
+
+    &.form__label-textarea {
+      display: block;
+    }
+  }
+}
+
+.validate {
+  @include critical {
+    .form__label {
+      margin-bottom: 0;
+    }
+
+    .validate__msg {
+      display: block;
+      @include px(height, 24px);
+    }
+  }
+}
+
+.form__labelspan {
+  @include critical {
+    font-family: $headingFontFamily;
+    font-weight: $headingFontWeight;
+    color: $colorText;
+    position: relative;
+    z-index: 4;
+    @include px(height, 38px);
+    @include px(line-height, 38px);
+    flex-shrink: 0;
+    white-space: nowrap;
+    @include px(padding, 0px 16px 0px 0px);
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+
+    > * {
+      vertical-align: middle;
+    }
+
+    svg {
+      @include px(margin-right, 13px);
+    }
+  }
+}
+
+.form__highlight {
+  @include critical {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    @include px(height, 2px);
+    display: block;
+    z-index: 10;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      bottom: 0px;
+      left: 0px;
+      height: 100%;
+      position: absolute;
+    }
+
+    &:before {
+      width: 100%;
+      background-color: red;
+    }
+
+    &:after {
+      width: 0%;
+      @include transition(width 0.3s);
+      background-color: lime;
+    }
+  }
+}
+
+.form__checkbox {
+  @include critical {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    white-space: unset;
+    line-height: 1.6;
+  }
+
+  input[type='checkbox'] {
+    @include critical {
+      width: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+      @include px(margin-right, 12px);
+      height: auto;
+      @include px(margin-top, 6px);
+      line-height: 1.6;
+    }
+  }
+
+  .form__labelspan {
+    @include critical {
+      width: 80%;
+      line-height: 1.6;
+      flex-grow: 1;
+      display: block;
+      height: auto;
+      font-weight: $baseFontWeight;
+      @include px(font-size, 16px);
+      white-space: inherit;
+    }
+  }
+}
+
+.form__charcount {
+  @include critical {
+    color: $colorText;
+    position: absolute;
+    bottom: 9px;
+    right: 0px;
+    @include px(font-size, 13px);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  @include defer {
+    -webkit-box-shadow: 0 0 0 30px lime inset;
+    -webkit-text-fill-color: $colorTextInverse;
+    font-size: inherit !important;
+  }
+}
+
+input,
+select,
+textarea {
+  &:focus ~ .form__highlight:after {
+    @include critical {
+      width: 100%;
+    }
+  }
+}
+
+.form__recaptcha-disclaimer {
+  @include critical {
+    @include px(font-size, 14px);
+    @include px(margin-top, 20px);
+    line-height: 1.4;
+  }
+}
+
+/* Modifiers
+   ========================================================================== */
+
+.form__row {
+  .g-recaptcha > * {
+    @include critical {
+      @include px(margin-bottom, 20px);
+    }
+  }
+}
+
+.grecaptcha-badge {
+  @include critical {
+    visibility: hidden;
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+//Desktop and Up
+@include mq(desktop) {
+}
+
+//Tablet and Desktop
+@include mq(tablet) {
+  .form__row--5050 {
+    @include critical {
+      display: flex;
+      align-items: flex-start;
+
+      > * {
+        width: 50%;
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+
+      > *:first-child {
+        @include px(padding-right, 20px);
+      }
+
+      > *:last-child {
+        @include px(padding-left, 20px);
+      }
+    }
+  }
+}
+
+//Mobile Small
+@include mq(0, tablet) {
+  .form {
+    @include critical {
+      text-align: left;
+    }
+  }
+
+  .form label textarea {
+    @include critical {
+      @include px(height, 112px);
+    }
+  }
+
+  .form__row {
+    @include critical {
+      @include px(margin-bottom, 10px);
+    }
+  }
+
+  .form__row--5050 {
+    @include critical {
+      margin-bottom: 0px;
+
+      > * {
+        @include px(margin-bottom, 10px);
+      }
+    }
+  }
+
+  .form__row--newsletter {
+    @include critical {
+      @include px(top, 0px);
+      @include px(margin-bottom, 20px);
+    }
+  }
+
+  .validate--error {
+    .form__label {
+      @include critical {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

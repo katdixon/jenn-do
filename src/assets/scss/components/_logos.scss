@@ -1,0 +1,308 @@
+/* Component
+   ========================================================================== */
+
+.logos {
+  @include critical {
+    --headingColour: var(--colorText);
+    --bgColour: $uiWhite;
+    --serviceColour: var(--brandWatermelon);
+    --serviceHover: var(--pastelWatermelon);
+
+    --x: 50%;
+    --y: 50%;
+
+    position: relative;
+    display: block;
+
+    @include transition(background-color 0.3s 0.1s);
+
+    .flex {
+      height: 100%;
+    }
+
+    .flex > .flex__col:first-child {
+      align-self: flex-end;
+    }
+
+    .flex > .flex__col:last-child {
+      z-index: 30;
+    }
+  }
+}
+
+/* Panels
+    ========================================================================== */
+
+.logos__service-detail {
+  @include critical {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include px(padding, 0px $gridGutterMobile 0px $gridGutterMobile);
+    z-index: 1;
+    @include transition(opacity 0.3s);
+
+    &:nth-child(1) {
+      position: relative;
+      z-index: 20;
+      padding: 0;
+      left: 0;
+    }
+
+    &[aria-hidden='true'] {
+      opacity: 0;
+      z-index: 1;
+      @include transition(opacity 0.2s, transform 0.2s);
+      transform: translateX(-40px);
+    }
+
+    &[aria-hidden='false'] {
+      opacity: 1;
+      z-index: 20;
+      @include transition(opacity 0.4s 0.3s, transform 0.6s 0.3s);
+      transform: translateX(0px);
+    }
+  }
+}
+
+/* Buttons
+    ========================================================================== */
+
+.logos__buttons {
+  @include critical {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, calc(25% - 2vw)));
+    grid-auto-rows: 180px;
+    gap: 2vw;
+    position: relative;
+    z-index: 30;
+  }
+}
+
+.logo__btn {
+  @include critical {
+    @include px(padding, 20px);
+    background-color: var(--uiWhite);
+    color: $colorText;
+    border: 1px solid $uiBlack;
+    @include px(border-radius, 9px);
+    //cursor: pointer;
+    @include transition(color 0.3s, background-color 0.3s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    span:first-child {
+      @include px(height, 76px);
+      display: flex;
+      align-items: center;
+      @include px(margin-bottom, 20px);
+    }
+
+    svg path {
+      fill: var(--serviceColour);
+      @include transition(fill 0.3s ease-in);
+    }
+  }
+  @include defer {
+    &::before {
+      position: absolute;
+      top: var(--y);
+      left: var(--x);
+      transform: translate(-50%, -50%);
+      content: '';
+
+      opacity: 0;
+      @include px(width, 0px);
+      @include px(height, 0px);
+      border-radius: 50%;
+      background-color: var(--serviceColour);
+      @include transition(width 0.8s, height 0.8s, opacity 0.2s);
+    }
+
+    &:hover {
+      background-color: var(--serviceHover);
+    }
+
+    &[aria-selected='true'],
+    &[aria-selected='true']:hover {
+      background-color: var(--serviceHover);
+      color: var(--uiWhite);
+
+      svg path {
+        fill: var(--uiWhite);
+      }
+    }
+
+    &[aria-selected='true']::before {
+      opacity: 1;
+      @include px(width, 460px);
+      @include px(height, 460px);
+    }
+  }
+}
+
+/* Modifiers
+    ========================================================================== */
+
+/* Media Queries
+    ========================================================================== */
+
+//Desktop
+@include mq(desktop) {
+  .logos {
+    @include critical {
+      height: calc(100vh - 150px);
+      @include px(min-height, 470px);
+      @include px(max-height, 850px);
+    }
+  }
+
+  .logos__service-detail {
+    @include critical {
+      @include px(padding, 100px $gridGutter);
+    }
+  }
+
+  .logos .flex__col:last-child {
+    @include critical {
+      text-align: right;
+      direction: rtl; // to best handle the overflow
+    }
+  }
+
+  .logos__buttons {
+    @include critical {
+      direction: ltr;
+      margin-right: 0px;
+      width: 120%;
+      justify-content: right;
+      // margin-left: -20%;
+
+      grid-template-columns: repeat(3, 145px);
+      grid-auto-rows: 160px;
+      @include px(margin-bottom, 50px);
+      position: relative;
+    }
+  }
+}
+
+@include mq(desktop, 1179px) {
+  .logos__buttons {
+    > *:nth-child(4),
+    > *:nth-child(6) {
+      @include critical {
+        grid-column-start: 2;
+      }
+    }
+  }
+}
+
+@include mq(1180px) {
+  .logos__buttons {
+    @include critical {
+      grid-template-columns: repeat(4, 145px);
+      min-width: 665px;
+      grid-auto-rows: 180px;
+      justify-content: space-between;
+
+      > *:nth-child(5),
+      > *:nth-child(8) {
+        grid-column-start: 2;
+      }
+    }
+  }
+}
+
+//Tablet and mobile
+@include mq(0, desktop) {
+  .logos {
+    .flex > .flex__col:first-child {
+      @include critical {
+        @include px(min-height, 260px);
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .logos__service-detail {
+    @include critical {
+      width: 100%;
+      @include px(max-width, 660px);
+
+      &:nth-child(n) {
+        @include px(padding-top, 50px);
+      }
+
+      &[aria-hidden='true'] {
+        transform: translateX(40px);
+      }
+    }
+  }
+
+  .logos__buttons {
+    @include critical {
+      grid-template-columns: repeat(4, calc(25% - 2vw));
+      grid-auto-rows: 20vw;
+      width: 100%;
+      justify-content: space-between;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .logo__btn {
+    @include critical {
+      @include px(font-size, 16px);
+
+      span:first-child {
+        height: 10vw;
+        width: 10vw;
+      }
+    }
+  }
+}
+
+//Mobile
+@include mq(0, tablet) {
+  .logos {
+    .flex > .flex__col:first-child {
+      @include critical {
+        @include px(min-height, 230px);
+      }
+    }
+  }
+  .logos__buttons {
+    @include critical {
+      grid-template-columns: repeat(3, calc(33% - 2vw));
+      grid-auto-rows: 30vw;
+    }
+  }
+
+  .logo__btn {
+    @include critical {
+      @include px(font-size, 16px);
+      @include px(padding, 5px);
+
+      span:first-child {
+        height: 14vw;
+        width: 14vw;
+        margin-top: 2vw;
+        @include px(margin-bottom, 6px);
+      }
+    }
+  }
+}
