@@ -2,10 +2,7 @@
 <section class="module fifty-fifty fifty-fifty--media-@@imagefirst" style="--bgColour: var(--@@bg); --headingColour:  var(--@@headingColour); --textColour: var(--@@textColour)">
     <div class="">
         <div class="column flex5050">
-            <div class="fifty-fifty__media">
-                <div class="fifty-fifty__media-container">
-                </div>
-            </div>
+
             <div class="fifty-fifty__copy module__background">
 
                 @@if(preheader){
@@ -30,6 +27,24 @@
                     </div>
                 }
 
+            </div>
+
+            <div class="fifty-fifty__media">
+                <div class="fifty-fifty__media-container" data-speed="1.1">
+                        @@include('../../includes/slimsy.html', {
+                            "image" : {
+                                "desktop" : "/assets/img/@@image", 
+                                "mobile" : "/assets/img/@@imagemobile"
+                            },
+                            "width" : "700",
+                            "height" : "560",
+                            "breakpoint" : "730",
+                            "pictureclass" : "",
+                            "imgclass" : "u-objectFit",
+                            "breakpoint" : "",
+                            "sizes" : "700x560, 700x560"
+                        })
+                </div>
             </div>
         </div>
     </div>

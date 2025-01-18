@@ -2,35 +2,64 @@
     "pageTitle": "Jenn-Do 2025"
 })
 
+<!-- 
+    --black: #080b13;
+    --white: #FFFFFF;
+    --tan: #94624f;
+    --grey: #666666;
+    --midgrey: #333;
+    --darkgrey: #1a1e28;
+
+-->
+
 @@include('includes/nav.html')
 
-    <main class="JennDo__page">
-        <div class="column" style="padding-top:140px;">
+<div id="smooth-wrapper">
+    <div id="smooth-content">
 
-            <h1>Jenn Do</h1>
-            @@include('includes/wysiwig.html')
+        <main class="JennDo__page">
 
-        </div>
+            @@include('modules/banner/banner.html', {
+                "button" : "true",
+                "h" : "h1",
+                "title" : "Jenn Do",
+                "copy" : "<p>7 - 9th March 2025</p>",
+                "image" : "/banner/witches.jpg",
+                "imagemobile" : "/banner/witches-mobile.jpg",
+                "id" : "b0"
+            })
 
-        <!-- 
-            --black: #080b13;
-            --white: #FFFFFF;
-            --tan: #94624f;
-            --grey: #666666;
-            --darkgrey: #1a1e28;
+            @@include('modules/fifty-fifty/fifty-fifty.html', {
+                "imagefirst" : "left",
+                "preheader" : "Jenn Do",
+                "title" : "Let's celebrate Jenn!",
+                "copy" : "<p>It's happening!! Our magical, hilarous and illegally beautiful Jenn has found someone as wonderful and weird as her. So it's time to get all the hens together and have a jolly good celebration.</p>",
+                "buttons" : ["Find out!"],
+                "headingColour" : "white",
+                "textColour" : "grey",
+                "bg" : "darkgrey",
+                "image" : "jennharry.jpeg",
+                "imagemobile" : "jennharry.jpeg"
+            })
 
-        -->
 
-        @@include('modules/fifty-fifty/fifty-fifty.html', {
-            "imagefirst" : "left",
-            "preheader" : "hello",
-            "title" : "Jenn-Do",
-            "copy" : "<p>This is copy</p>",
-            "buttons" : ["Find out!"],
-            "headingColour" : "white",
-            "textColour" : "grey",
-            "bg" : "darkgrey"
-        })
-    </main><!-- .Wrapper -->
 
-@@include('includes/footer.html')
+            @@include('modules/fifty-fifty/fifty-fifty.html', {
+                "imagefirst" : "right",
+                "preheader" : "Tell us more!",
+                "title" : "What are we doing?",
+                "copy" : "<p>There is nothing strenuous or anything that you would need to sign a waiver for planned for this weekend, but there will be lots going on! Plenty of eating, sleepover vibes, general feel-good scenarios, lots of appreciation for the bride, games and crafty times. We hope that you’ll be left feeling full of joy, surrounded by love and inspired. ✨ 🧡</p>",
+                "buttons" : ["Find out!"],
+                "headingColour" : "midgrey",
+                "textColour" : "midgrey",
+                "bg" : "white",
+                "image" : "80sjenn.jpeg",
+                "imagemobile" : "80sjenn.jpeg"
+            })
+
+        </main><!-- .Wrapper -->
+        @@include('includes/footer.html')
+    </div>
+</div>
+
+@@include('includes/footer-includes.html')

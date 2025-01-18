@@ -58,18 +58,18 @@ h6,
 h1,
 *.u-h1 {
   @include critical {
-    @include px(font-size, $largeHeading);
-    line-height: 0.9;
-    @include clamp('font-size', $largeHeading_mobile, $largeHeading);
+    @include px(font-size, $headingH1);
+    line-height: 1;
+    @include clamp('font-size', $headingH1_mobile, $headingH1);
   }
 }
 
 h2,
 *.u-h2 {
   @include critical {
-    @include px(font-size, $largeHeading);
-    line-height: 0.9;
-    @include clamp('font-size', $largeHeading_mobile, $largeHeading);
+    @include px(font-size, $headingH2);
+    line-height: 1;
+    @include clamp('font-size', $headingH2_mobile, $headingH2);
   }
 }
 
@@ -143,7 +143,7 @@ p {
     color: $brandTan;
     @include px(letter-spacing, 4px);
 
-    @include px(margin, 0px 0px 4px 0px);
+    @include px(margin, 0px 0px 6px 0px);
     position: relative;
   }
 }

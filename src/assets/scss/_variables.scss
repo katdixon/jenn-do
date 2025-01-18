@@ -5,18 +5,20 @@ $uiBlack: #080b13;
 $uiWhite: #ffffff;
 
 $brandTan: #94624f;
-$brandGrey: #666666;
+$brandGrey: #888;
+$brandMidGrey: #333333;
 $brandDarkGrey: #1a1e28;
 
 
 $colorText: $brandGrey;
-$colorTextInverse: $uiBlack;
+$colorTextInverse: #333;
 
 :root{
    --black: #080b13;
    --white: #FFFFFF;
    --tan: #94624f;
-   --grey: #666666;
+   --grey: #888;
+   --midgrey: #333;
    --darkgrey: #1a1e28;
 }
 
@@ -106,21 +108,26 @@ $textDirection: ltr !default; // if a multilingual website - rtl !default
 $baseFontSize: 18; // No px on this
 $baseLineHeight: 26px;
 
-$largeHeading: 110px;
+
 $largeBodyCopy: 35px;
 $preHeaderSize: 16px;
 
-$headingH3: 80px;
+$headingH1: 130px;
+$headingH2: 70px;
+$headingH3: 50px;
 $headingH4: 40px;
 $headingH5: 25px;
 
 $baseFontSize_mobile: 16px;
 $baseLineHeight_mobile: 21px;
 
-$largeHeading_mobile: 50px;
+
 $largeBodyCopy_mobile: 24px;
 $preHeaderSize_mobile: 14px;
 
+
+$headingH1_mobile: 70px;
+$headingH2_mobile: 44px;
 $headingH3_mobile: 37px;
 $headingH4_mobile: 25px;
 $headingH5_mobile: 16px;

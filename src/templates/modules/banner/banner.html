@@ -1,68 +1,30 @@
 <!---- START HERO BANNER ---->
 <section class="banner">
-        <div class="banner__splide"  aria-labelledby="banner-heading">
-            @@if(title){
-                <div class="banner__content">
-                    <div class="column column--narrow">
-                        <div class="banner__overlay"></div>
-                        <div>
-                            <@@h class="module__heading u-h1">@@title</@@h>
-                            <div class="banner__text">
-                                <!-- start wysiwig -->
-                                <p>@@copy</p>
-                                <!-- end wysiwig -->
-                            </div>
-    
-                        </div>
+    @@if(title){
+        <div class="banner__content">
+            <div class="column column--narrow">
+                <div class="banner__overlay"></div>
+                <div>
+                    <@@h class="module__heading u-h1">@@title</@@h>
+                    <div class="banner__text">
+                        <!-- start wysiwig -->
+                        <p>@@copy</p>
+                        <!-- end wysiwig -->
                     </div>
+
+
                 </div>
-            }
-
-
-            <div class="banner__media">
-                @@if(vimeo){
-                    <div class="video-embed">
-                        <div id="banner_vimeoid_@@id" class="video-embed__container js-videoEmbed" data-video-provider="Vimeo" data-video-url="@@vimeo" data-video-mobile-url="@@vimeomobile" data-video-autoplay="true"></div>
-                    
-                        <a href="#" class="js-startEmbed video-embed__placeholder">
-
-                            @@include('../../includes/slimsy.html', {
-                                "image" : {
-                                    "desktop" : "/assets/img/temp/banner/1.jpg", 
-                                    "mobile" : "/assets/img/temp/banner/1-mobile.jpg"
-                                },
-                                "width" : "1500",
-                                "height" : "537",
-                                "breakpoint" : "731px",
-                                "pictureclass" : "banner__image",
-                                "imgclass" : " u-objectFit",
-                                "sizes" : "360x244,1500x537"
-                            })
-
-                            <span class="video-embed__play">
-                                <svg version="1.1" class="svg__playbtn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212 212" style="enable-background:new 0 0 212 212;" xml:space="preserve" width="212" height="212">
-                                    <path d="M106,0C47.5,0,0,47.5,0,106s47.5,106,106,106s106-47.5,106-106S164.5,0,106,0 M76.6,159V53
-                                    l76.6,53L76.6,159z"></path>
-                                </svg>
-                                <span class="u-visuallyHidden">Play Video</span>
-                            </span>
-                        </a>
-                    </div>
-                }
-
-                @@if(!vimeo){
-                    @@for (var i = 0; i < 1; i++) {
-                        <picture class="banner__image">
-                            <source srcset="/assets/img/temp/banner/`+slides[i].image+`.jpg" media="(min-width: 731px)">
-                            <img src="/assets/img/lazy/pixel.png" data-src="/assets/img/temp/banner/`+slides[i].image+`-mobile.jpg" alt="ALT TEXT" width="730" height="520" class="u-objectFit lazyload">
-                        </picture>
-                    }
-                }
-
-
             </div>
-
         </div>
+    }
+
+
+    <div class="banner__media">
+        <picture class="banner__image" data-speed="0.9">
+            <source srcset="/assets/img/@@image" media="(min-width: 731px)">
+            <img src="/assets/img/lazy/pixel.png" data-src="/assets/img/@@imagemobile" width="730" height="520" class="u-objectFit lazyload">
+        </picture>
+    </div>
 </section>
 
 <!---- END HERO BANNER ---->

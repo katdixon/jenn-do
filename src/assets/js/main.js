@@ -12,8 +12,8 @@ JennDo.main = (function () {
 
 window.onload = () => {
   JennDo.anchor.init();
-  //JennDo.cursor.init();
-  //JennDo.gsap.init();
+  JennDo.cursor.init();
+  JennDo.gsap.init();
   JennDo.header.init();
   JennDo.nav.init();
   //JennDo.video.init();
