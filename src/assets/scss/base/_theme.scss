@@ -8,8 +8,8 @@
    ========================================================================== */
 
 .module__text {
-  p > a,
-  a {
+  p > a:not(.button),
+  a:not(.button) {
     @include critical {
       color: inherit;
       text-decoration: none;
@@ -25,7 +25,7 @@
         left: 0;
         @include px(height, 4px);
         background-color: rgba($brandTan, 0.6);
-        z-index: -1;
+        z-index: 1;
         transform: translateX(4px) translateY(0px);
       }
     }
@@ -66,7 +66,8 @@
 }
 
 .u-h1.module__heading,
-.u-h2.module__heading {
+.u-h2.module__heading, 
+.u-h3.module__heading {
   @include critical {
     color: var(--headingColour);
   }
