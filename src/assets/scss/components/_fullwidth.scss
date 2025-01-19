@@ -93,7 +93,7 @@
   @include critical{
     position: relative;
     width: 130px;
-    margin:0px auto;
+    margin:0px auto 20px auto;
     &::before, &::after{
       content: " ";
       display: block;
