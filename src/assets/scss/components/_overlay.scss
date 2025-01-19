@@ -1,0 +1,83 @@
+/* Component
+   ========================================================================== */
+
+.overlay{
+    @include critical{
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 105vw;
+        height: 105vh;
+        background-color: $uiBlack;
+        z-index: -1;
+        @include px(padding, 20px);
+        text-align: center;
+
+        * {
+            display: block;
+            margin: 20px auto;
+        }
+
+        > *{
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        input{
+            @include px(width, 340px);
+            @include px(margin-bottom, 30px);
+            @include px(padding, 10px);
+            @include px(font-size, 20px);
+            border:none;
+            border: 2px solid $brandDarkGrey;
+
+            &:focus{
+                outline: 2px solid $brandTan;
+            }
+        }
+    }
+}
+   
+
+main{
+    @include critical{
+       transition: opacity 0.4s ease-in-out;
+    }
+}
+
+.u-showoverlay{
+    @include critical{
+        .overlay{
+            visibility: visible;
+            opacity: 1;
+            z-index: 10000;
+        }
+
+        overflow: hidden;
+        width: 100% !important;
+        height: 100% !important;
+
+        body{
+            overflow: hidden;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        main{
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,6 +1,25 @@
 
+<div class="overlay">
+    <form id="passphrase-form">
+        <label for="passphrase" class="module__heading u-h3">Enter the passphrase!</label>
+        <input type="text" id="passphrase" name="passphrase" required>
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
 
+
+<script>
+    document.getElementById('passphrase-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const passphrase = document.getElementById('passphrase').value;
+        // Handle the passphrase submission with JavaScript
+        console.log('Passphrase submitted:', passphrase);
+        // You can add your AJAX request or other logic here
+    });
+</script>
+</div>
 <div class="cursor"></div>
+
 <link rel="stylesheet" href="/assets/css/deferred.min.css">  
 <script type="text/javascript" src="/assets/js/main.min.js?v=17052022"></script>
 

@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 <!--[if IE 9]><html class="lt-ie10 no-js" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js u-showoverlay" lang="en"><!--<![endif]-->
 <head> 
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +46,7 @@
     <div class="column">
         <div class="header__flex">
             <div class="header__logo">
-                <a href="/" data-anchor>
+                <a href="/" data-anchor="#">
                     <img src="/assets/img/logo.png" alt="Jenn's face" height="60" width="60">
                     <span class="u-visuallyHidden">Jenn Do</span>
                 </a>
@@ -54,16 +54,16 @@
             <nav class="nav">
                 <ul class="nav__list">
                     <li>
-                        <a href="/#where" data-anchor>Where?</a>
+                        <a href="/#where" data-anchor="#where" data-anchor>Where?</a>
                     </li>
                     <li>
-                        <a href="/#what" data-anchor>What?</a>
+                        <a href="/#what" data-anchor="#what" data-anchor>What?</a>
                     </li>
                     <li>
-                        <a href="/#to-bring" data-anchor>Packing</a>
+                        <a href="/#to-bring" data-anchor="#to-bring" data-anchor>Packing</a>
                     </li>
                     <li>
-                        <a href="/#faq" data-anchor>FAQ</a>
+                        <a href="/#faq" data-anchor="#faq" data-anchor>FAQ</a>
                     </li>
                     <li>
                         <a class="button button--inverse" href="/form.html">Fill in this form!</a>
@@ -140,12 +140,12 @@
 </section>
 <!------ END FULL WIDTH COPY ------>
 
-            <section class="module" style="text-align: center;">
+            <section class="module divider" style="text-align: center;">
     <img src="/assets/img/logo.png" alt="Jenn's face" height="40" width="40">
 </section>
 
 
-            <div id="#where"></div>
+            <div id="where"></div>
             <!------ START 50:50 ------>
 <section class="module fifty-fifty fifty-fifty--media-right" style="--bgColour: var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
     <div class="">
@@ -267,11 +267,11 @@
     </div>
 </section>
 
-            <section class="module" style="text-align: center;">
+            <section class="module divider" style="text-align: center;">
     <img src="/assets/img/logo.png" alt="Jenn's face" height="40" width="40">
 </section>
 
-            <div id="#what"></div>
+            <div id="what"></div>
             <!------ START 50:50 ------>
 <section class="module fifty-fifty fifty-fifty--media-right" style="--bgColour: var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
     <div class="">
@@ -316,11 +316,11 @@
     </div>
 </section>
 
-            <section class="module" style="text-align: center;">
+            <section class="module divider" style="text-align: center;">
     <img src="/assets/img/logo.png" alt="Jenn's face" height="40" width="40">
 </section>
 
-            <div id="#to-bring"></div>
+            <div id="to-bring"></div>
 
             <section class="module">
                 <div class="column">
@@ -336,18 +336,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="grid__item module__background"  style="--bgColour:  var(--white); --headingColour:  var(--midgrey); --textColour: var(--midgrey)">
-                           
-                            <img src="/assets/img/bring/ribbons2.jpg" alt="ribbons" class="u-objectFit">
-                        </div>
-                        <div class="grid__item module__background"  style="--bgColour:  var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
-                            <img src="/assets/img/bring/witchy.jpg" alt="outfit ideas" class="u-objectFit">
-                            <div class="grid__caption module__text">
-                                <p>Think celtic or pagan witch inspired ... floaty material, moons, crystals, whatever you fancy really  🖤</p>
-                            </div>
-                        </div>
-                        <div class="grid__item module__background"  style="--bgColour:  var(--white); --headingColour:  var(--midgrey); --textColour: var(--midgrey)">
 
+                        <div class="grid__item module__background"  style="--bgColour:  var(--white); --headingColour:  var(--midgrey); --textColour: var(--midgrey)">
                             <div class="module__text">
                                 <ul>
                                     <li>We will bring bubbles & non-alcoholic bubbles for everyone to have a glass, but please bring whatever else you might want - this is to keep it fair for cost splitting. There will be tea, coffee, squash and pop for everyone, but any other beverages you’ll need to bring along. There are supermarkets nearby that can always be popped to!</li>
@@ -355,7 +345,19 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="grid__item module__background"  style="--bgColour:  var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
+
+                        <div class="grid__item grid__item--has-image module__background"  style="--bgColour:  var(--white); --headingColour:  var(--midgrey); --textColour: var(--midgrey)">
+                           
+                            <img src="/assets/img/bring/ribbons2.jpg" alt="ribbons" class="u-objectFit">
+                        </div>
+                        <div class="grid__item grid__item--has-image module__background"  style="--bgColour:  var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
+                            <img src="/assets/img/bring/witchy.jpg" alt="outfit ideas" class="u-objectFit">
+                            <div class="grid__caption module__text">
+                                <p>Think celtic or pagan witch inspired ... floaty material, moons, crystals, whatever you fancy really  🖤</p>
+                            </div>
+                        </div>
+
+                        <div class="grid__item grid__item--has-image module__background"  style="--bgColour:  var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
                             <img src="/assets/img/bring/crystals2.jpg" alt="crystals" class="u-objectFit">
                         </div>
                     </div>
@@ -364,11 +366,11 @@
 
 
 
-            <section class="module" style="text-align: center;">
+            <section class="module divider" style="text-align: center;">
     <img src="/assets/img/logo.png" alt="Jenn's face" height="40" width="40">
 </section>
 
-            <div id="#faq"></div>
+            <div id="faq"></div>
             <!------ START FULL WIDTH COPY ------>
 <section class="module fullwidth module__background theme__background--   fullwidth--center" style="--headingColour:  var(--white); --textColour: var(--white)">
     <div class="column column--narrow">
@@ -393,7 +395,7 @@
             
                 <div class="faq__item">
                     <h3 class="faq__question module__heading u-h3">Can you remind me of costs?</h3>
-                    <div class="faq__answer"><p>The cost per hen is £250 - this includes covering Jenn. This covers:</p><ul><li>2 night stay</li><li>a (simple) breakfast both days</li><li>dinner the first night</li><li>pub lunch on Saturday</li><li>a welcome glass of bubbly (boozy or alcohol-free)</li><li>planned activities</li></ul><p>Please bring anything else you want to drink at the house, and get your own drinks from the bar at the pub.</p><p>If we end up coming in under the £250 the extra monies will ofc be refunded to you.</p></div>
+                    <div class="faq__answer"><p>The cost per hen is £250 - this includes covering Jenn. <br>This pays for:</p><ul><li>2 night stay</li><li>a (simple) breakfast both days</li><li>dinner the first night</li><li>pub lunch on Saturday</li><li>a welcome glass of bubbly (boozy or alcohol-free)</li><li>planned activities</li></ul><p>Please bring anything else you want to drink at the house, and get your own drinks from the bar at the pub.</p><p>If we end up coming in under the £250 the extra monies will ofc be refunded to you.</p><p>We have to pay the final balance for the house on 26th February, so if your finances allow please try and settle up by then.</p></div>
                 </div>
             
                 <div class="faq__item">
@@ -412,9 +414,10 @@
 </section>
 <!------ END FULL WIDTH COPY ------>
 
-            <section class="module" style="text-align: center;">
+            <section class="module divider" style="text-align: center;">
     <img src="/assets/img/logo.png" alt="Jenn's face" height="40" width="40">
 </section>
+            <br><br>
 
         </main><!-- .Wrapper -->
         <footer class="footer">
@@ -430,8 +433,27 @@
 </div>
 
 
+<div class="overlay">
+    <form id="passphrase-form">
+        <label for="passphrase" class="module__heading u-h3">Enter the passphrase!</label>
+        <input type="text" id="passphrase" name="passphrase" required>
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
 
+
+<script>
+    document.getElementById('passphrase-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const passphrase = document.getElementById('passphrase').value;
+        // Handle the passphrase submission with JavaScript
+        console.log('Passphrase submitted:', passphrase);
+        // You can add your AJAX request or other logic here
+    });
+</script>
+</div>
 <div class="cursor"></div>
+
 <link rel="stylesheet" href="/assets/css/deferred.min.css">  
 <script type="text/javascript" src="/assets/js/main.min.js?v=17052022"></script>
 

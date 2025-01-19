@@ -84,3 +84,48 @@
     }
   }
 }
+
+
+
+
+
+.divider{
+  @include critical{
+    position: relative;
+    width: 130px;
+    margin:0px auto;
+    &::before, &::after{
+      content: " ";
+      display: block;
+      width: 30px;
+      top: 50%;
+      left: 0;
+      position: absolute;
+      height: 3px;
+      border-radius: 3px;
+      background-color: $brandTan;
+      opacity: 0.4;
+    }
+
+    &::after{
+      right: 0;
+      left: auto;
+    }
+  }
+
+  @include defer{
+    img:hover{
+      animation: rotate 0.13s infinite alternate ease-in-out;
+        }
+
+        @keyframes rotate {
+      from {
+        transform: rotate(-40deg);
+      }
+      to {
+        transform: rotate(10deg) scale(1.2);
+        
+      }
+    }
+  }
+}

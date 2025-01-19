@@ -2,8 +2,11 @@ var JennDo = JennDo || {};
 
 JennDo.main = (function () {
   function init() {
-    // not currently needed
+
   }
+
+
+
 
   return {
     init: init
@@ -11,6 +14,7 @@ JennDo.main = (function () {
 })();
 
 window.onload = () => {
+  JennDo.passphrase.init();
   JennDo.anchor.init();
   JennDo.cursor.init();
   JennDo.gsap.init();

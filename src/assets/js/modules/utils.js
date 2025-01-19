@@ -201,6 +201,8 @@ var util = (function (window, document) {
 
       let scrollTopAmount = 0;
 
+      console.log('elem: ' + elem);
+
       if (offset == 0) {
         offset = document.querySelector('.header').offsetHeight;
       }
@@ -227,6 +229,7 @@ var util = (function (window, document) {
       );
     },
     offset(selector) {
+      console.log('selector: ' + selector);
       var rect = document.querySelector(selector).getBoundingClientRect();
 
       return {
