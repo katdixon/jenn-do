@@ -4,6 +4,10 @@
 /* Media Queries
    ========================================================================== */
 
+html, body, main, p, div, *{
+  cursor: none !important;
+}
+
 .cursor {
   @include critical {
     position: fixed;
@@ -11,57 +15,30 @@
     top: 0;
     pointer-events: none;
 
-    @include px(width, 0px);
-    @include px(height, 0px);
+    @include px(width, 34px);
+    @include px(height, 34px);
 
-    @include px(margin-left, -6px);
-    @include px(margin-top, -6px);
-
-    border-radius: 50%;
+    //@include px(margin-left, -15px);
+    //@include px(margin-top, -15px);
     z-index: 11000;
-    background: white;
-    mix-blend-mode: exclusion;
+  
+    display: block;
+    background-image: url('/assets/img/cursor.png');
+    background-position: 0px 0px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    
     @include transition(
-      margin-left 0.3s,
-      margin-right 0.3s,
-      width 0.3s,
-      height 0.3s
+      width 0.2s, height 0.2s
     );
   }
 }
 
 .cursor--hover {
   @include defer {
-    @include px(width, 30px);
-    @include px(height, 30px);
 
-    @include px(margin-left, -15px);
-    @include px(margin-top, -15px);
+    @include px(width, 46px);
+    @include px(height, 46px);
+      background-position: right top;
   }
-}
-
-//Tablet and Desktop
-@include mq(tablet) {
-}
-
-//Tablet Down
-@include mq(0, desktop) {
-  // enable cursor on mobile & tablet
-  a,
-  button,
-  [type='button'],
-  [type='reset'],
-  [type='submit'] {
-    cursor: pointer;
-  }
-
-  .cursor {
-    @include critical {
-      display: none;
-    }
-  }
-}
-
-//Mobile
-@include mq(0, tablet) {
 }

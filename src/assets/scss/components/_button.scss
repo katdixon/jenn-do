@@ -41,7 +41,7 @@
     text-transform: $btnTextTranform;
     font-family: $baseFontFamily;
 
-    @include transition(transform 0.3s, color 0.3s, background-color 0.3s);
+    @include transition(transform 0.3s, color 0.3s, background-color 0.3s, border-color 0.3s);
 
     @include px('padding', $btnPadding);
     @include px('margin', 0 0 10px 0);

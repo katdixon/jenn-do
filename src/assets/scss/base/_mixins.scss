@@ -357,10 +357,10 @@
     &::after {
       content: '';
       width: $width;
-      @include px(height, 4px);
+      @include px(height, 2px);
       display: block;
       background-color: $navFontColor;
-      @include px(border-radius, 4px);
+      @include px(border-radius, 2px);
       opacity: 0;
       transform: scaleX(0);
       transform-origin: left;

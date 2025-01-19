@@ -32,7 +32,42 @@
 <body>
 
 
+<header class="header" data-header>
+    <div class="column">
+        <div class="header__flex">
+            <div class="header__logo">
+                <a href="/" data-anchor>
+                    <img src="/assets/img/logo.png" alt="Jenn's face" height="60" width="60">
+                    <span class="u-visuallyHidden">Jenn Do</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li>
+                        <a href="/#where" data-anchor>Where?</a>
+                    </li>
+                    <li>
+                        <a href="/#what" data-anchor>What?</a>
+                    </li>
+                    <li>
+                        <a href="/#to-bring" data-anchor>Packing</a>
+                    </li>
+                    <li>
+                        <a href="/#faq" data-anchor>FAQ</a>
+                    </li>
+                    <li>
+                        <a class="button button--inverse" href="/form.html">Fill in this form!</a>
+                    </li>
+                </ul>
 
+            </nav>
+            <button type="button" class="nav__menu-toggle js-toggle-menu u-hideDesktopNav">
+                <span class="nav__menu-burger"></span>
+                <span class="nav__menu-text">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
 
 <main class="UnityPlace__page" >
 
@@ -102,7 +137,7 @@
 
 
     <!------ START FULL WIDTH COPY ------>
-<section class="module fullwidth module__background theme__background--" >
+<section class="module fullwidth module__background theme__background--  @@alignment" style="--headingColour:  var(--white); --textColour: var(--white)">
 
     <div class="column column--narrow">
 
@@ -136,7 +171,7 @@
 <!------ END FULL WIDTH COPY ------>
 
     <!------ START FULL WIDTH COPY ------>
-<section class="module fullwidth module__background theme__background--black" >
+<section class="module fullwidth module__background theme__background--black  @@alignment" style="--headingColour:  var(--white); --textColour: var(--white)">
 
     <div class="column column--narrow">
 
@@ -198,29 +233,21 @@
 
 
 
-    <!---- START HTML EMBED ---->
-
-<section class="module module__background theme__background--white embed  ">
+    <section class="module module__background theme__background--white embed  ">
     <div class="column column--narrow">
         <div class="embed__container">
-            <div>Embed module testing - 16x9 not forced</div>
+            <iframe id="googleform" title="google form" src="https://docs.google.com/forms/d/e/1FAIpQLSe17RhALZLG64REK91KDrGwmfrosI-ALCzV7ZxPjBNDmBDuhw/viewform?embedded=true" width="100%" height="1840" frameborder="0" marginheight="0" marginwidth="0">Form Loading…</iframe>
         </div>
     </div>
 </section>
 
-<!---- END HTML EMBED ---->
-
-    <!---- START HTML EMBED ---->
-
-<section class="module module__background theme__background--black embed  embed--force16x9">
+    <section class="module module__background theme__background--black embed  embed--force16x9">
     <div class="column column--narrow">
         <div class="embed__container">
-            <iframe width='560' height='315' src='https://www.youtube.com/embed/SQOfqpGL2y8' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen=''></iframe>
+            <iframe id="googleform" title="google form" src="https://docs.google.com/forms/d/e/1FAIpQLSe17RhALZLG64REK91KDrGwmfrosI-ALCzV7ZxPjBNDmBDuhw/viewform?embedded=true" width="100%" height="1840" frameborder="0" marginheight="0" marginwidth="0">Form Loading…</iframe>
         </div>
     </div>
 </section>
-
-<!---- END HTML EMBED ---->
 
 
 

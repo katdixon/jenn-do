@@ -16,45 +16,84 @@
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
-
         <main class="JennDo__page">
 
             @@include('modules/banner/banner.html', {
                 "button" : "true",
                 "h" : "h1",
-                "title" : "Jenn Do",
-                "copy" : "<p>7 - 9th March 2025</p>",
+                "title" : "✨ Jenn Do ✨",
+                "copy" : "<p>7-9th March 2025, Caldicot</p>",
                 "image" : "/banner/witches.jpg",
                 "imagemobile" : "/banner/witches-mobile.jpg",
                 "id" : "b0"
             })
 
-            @@include('modules/fifty-fifty/fifty-fifty.html', {
-                "imagefirst" : "left",
-                "preheader" : "Jenn Do",
+
+            @@include('modules/fullwidth.html', {
+                "h" : "h2",
                 "title" : "Let's celebrate Jenn!",
-                "copy" : "<p>It's happening!! Our magical, hilarous and illegally beautiful Jenn has found someone as weird and wonderful as her. So it's time to get together and have a jolly good celebration.</p>",
-                "buttons" : ["Find out!"],
-                "headingColour" : "white",
-                "textColour" : "grey",
-                "bg" : "darkgrey",
-                "image" : "jennharry.jpeg",
-                "imagemobile" : "jennharry.jpeg"
+                "copy" : "<p>It's happening!! Our magical, hilarous and illegally beautiful Jenn has found someone as weird and wonderful as her. So it's time to get together and have a jolly good celebration. </p>",
+                "buttons" : "",
+                "theme" : "",
+                "alignment": " fullwidth--center"
             })
 
 
-
+            <div id="#where"></div>
             @@include('modules/fifty-fifty/fifty-fifty.html', {
                 "imagefirst" : "right",
-                "preheader" : "Tell us more!",
-                "title" : "What are we doing?",
-                "copy" : "<p>There is nothing strenuous or anything that you would need to sign a waiver for planned for this weekend, but there will be lots going on! Plenty of eating, sleepover vibes, general feel-good scenarios, lots of appreciation for the bride, games and crafty times. We hope that you’ll be left feeling full of joy, surrounded by love and inspired. ✨ 🧡</p>",
-                "buttons" : ["Find out!"],
+                "preheader" : "",
+                "title" : "Where are we going?",
+                "copy" : "<p>We've booked a lovely Medieval Airbnb in Caldicot for a few days of merriment & celebration of Jenn!</p><p><strong>House features</strong></p><ul><li>8 person solid hot tub</li><li>Covered outdoor bar / seating area</li><li>A castle across the road</li><li>A pub 200m away</li><li>Some beautiful decor and architecture</li><li>Jenn will be there.</li></ul><p><strong>Check in</strong><br>from 5pm on Friday 7th.<br><br><strong>Check out</strong><br> Sunday 9th @ 1pm - so you don't have to rush off!</p>",
+                "buttons" : [{ "target": "_blank", "text": "Airbnb", "url" : "https://www.airbnb.co.uk/rooms/16531020"}], 
+                "headingColour" : "white",
+                "textColour" : "grey",
+                "bg" : "darkgrey",
+                "image" : "80sjenn.jpeg",
+                "imagemobile" : "80sjenn.jpeg"
+            })
+
+            @@include('modules/fifty-fifty/fifty-fifty.html', {
+                "imagefirst" : "left",
+                "preheader" : "",
+                "title" : "Getting there",
+                "copy" : "<p><strong>Address</strong><br>Llanthony Secunda Manor<br>Church Road<br>Caldicot<br>Wales NP26 4HT</p><p>If anyone is able to/wants to car share it would be great; mention this in the <a href='/form.html'>Google Form</a> and we can organise. Caldicot is the nearest station (about an 20min walk) and we can pick you up from there is train travel is your preference!</p>",
+                "buttons" : [{ "target": "_blank", "text" : "Get Directions", "url" : "https://www.google.com/maps/dir//Llanthony+Secunda+Manor+House,+Church+Rd,+Caldicot+NP26+4HT/@51.5964827,-2.7479919,17.31z/data=!4m17!1m7!3m6!1s0x4871eb0e4dfe4b97:0x46ec783636bea54e!2sLlanthony+Secunda+Manor+House!8m2!3d51.5957167!4d-2.7480686!16s%2Fg%2F1ptw135x0!4m8!1m0!1m5!1m1!1s0x4871eb0e4dfe4b97:0x46ec783636bea54e!2m2!1d-2.7480686!2d51.5957167!3e3?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" }],
                 "headingColour" : "midgrey",
                 "textColour" : "midgrey",
                 "bg" : "white",
                 "image" : "80sjenn.jpeg",
                 "imagemobile" : "80sjenn.jpeg"
+            })
+
+            <div id="#what"></div>
+            @@include('modules/fifty-fifty/fifty-fifty.html', {
+                "imagefirst" : "right",
+                "preheader" : "Tell us more!",
+                "title" : "What are we doing?",
+                "copy" : "<p>There is nothing strenuous or anything that you would need to sign a waiver for planned for this weekend, but there will be lots going on! Plenty of eating, sleepover vibes, general feel-good scenarios, lots of appreciation for the bride, games and crafty times. We hope that you’ll be left feeling full of joy, surrounded by love and inspired. ✨ 🧡</p>",
+                "buttons" : "",
+                "headingColour" : "midgrey",
+                "textColour" : "midgrey",
+                "bg" : "white",
+                "image" : "80sjenn.jpeg",
+                "imagemobile" : "80sjenn.jpeg"
+            })
+            <div id="#to-bring"></div>
+
+
+            <div id="#faq"></div>
+            @@include('modules/faqs.html', {
+                "h" : "h2",
+                "title" : "FAQs",
+                "copy" : "<p>Some things you might wanna know...</p>",
+                "questions" : [
+                    { "question": "What are the sleeping arrangements?", "answer" : "It will be shared rooms, and a mix of shared beds and singles (sleepover style!) and floor mattresses too - the rooms are massive! We appreciate not everyone has oodles of cash and we wanted to make sure as many of Jenn's faves could afford to come as possible, but if anyone is opposed to sharing a bed or has dibs on who they want to share with, just drop one of us a message and we will accommodate as much as we can - no judgements here - and we promise we'll do what we can (without remodelling the house)." },
+                    { "question": "Can you remind me of costs?", "answer" : "<p>The cost per hen is £250 - this includes covering Jenn. This covers:</p><ul><li>2 night stay</li><li>a (simple) breakfast both days</li><li>dinner the first night</li><li>pub lunch on Saturday</li><li>a welcome glass of bubbly (boozy or alcohol-free)</li><li>planned activities</li></ul><p>Please bring anything else you want to drink at the house, and get your own drinks from the bar at the pub.</p><p>If we end up coming in under the £250 the extra monies will ofc be refunded to you.</p>" },
+                    { "question": "I can't come anymore, can I have my money back?", "answer" : "That really sucks, but unfortunately if you confirm that you are coming and then cancel we won’t be able to refund you. By saying you will be there will affect how much we spend and what we do. Obviously we completely appreciate that things happen and changes might occur, but it will impact everyone else who attends. We really hope that you understand!</p>" },
+                ],
+                "theme" : "",
+                "alignment": " fullwidth--center"
             })
 
         </main><!-- .Wrapper -->

@@ -2,33 +2,37 @@
    ========================================================================== */
 
 .fullwidth {
-  text-align: left;
-
-  ul,
-  ol {
-    display: inline-block;
-
-    li {
-      text-align: left;
+  @include critical{
+    text-align: left;
+    ul,
+    ol {
+      display: inline-block;
+  
+      li {
+        text-align: left;
+      }
     }
-  }
-
-  .module__heading {
-    width: 100%;
-    //@include px(max-width, 760px);
+  
+    .module__heading {
+      width: 100%;
+      //@include px(max-width, 760px);
+    }
   }
 }
 
-.fullwidth {
-  a.button,
-  button.button {
-    @include px(margin-right, 20px);
-    @include px(margin-left, 0px);
-  }
+@include critical{
 
-  .module__text {
-    width: 100%;
-    @include px(max-width, 880px);
+  .fullwidth {
+    a.button,
+    button.button {
+      @include px(margin-right, 20px);
+      @include px(margin-left, 0px);
+    }
+
+    .module__text {
+      width: 100%;
+      @include px(max-width, 880px);
+    }
   }
 }
 

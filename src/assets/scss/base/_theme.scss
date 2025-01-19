@@ -72,6 +72,12 @@
   }
 }
 
+.module__text > p{
+  @include critical {
+    color: var(--textColour);
+  }
+}
+
 .module__text > p:last-child,
 .module__text > div:last-child > p:last-child {
   //because MS Word is a ****

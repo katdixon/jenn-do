@@ -7,6 +7,11 @@
     display: flex;
     align-items: center;
     position: relative;
+
+    .button{
+      @include px(max-height, 46px);
+    }
+
   }
 }
 
@@ -79,7 +84,7 @@ ul.nav__child-menu {
 .nav__menu-toggle {
   @include critical {
     padding: 0;
-    @include px(width, 50px);
+    @include px(width, 100px);
     @include px(height, 50px);
     @include px(top, $mobileNavPaddingVertical);
     display: none;
@@ -87,7 +92,7 @@ ul.nav__child-menu {
     color: $mobileNavToggleColor;
     background-color: $mobileNavToggleBackground;
     border: none;
-    border-radius: $mobileNavToggleBorderRadius;
+    //border-radius: $mobileNavToggleBorderRadius;
     z-index: 120;
   }
 
@@ -104,6 +109,7 @@ ul.nav__child-menu {
       color: currentColor;
       background-color: currentColor;
       @include px(border-radius, 3px);
+      @include px(margin-right, 8px);
 
       &::before,
       &::after {
@@ -203,14 +209,14 @@ ul.nav__child-menu {
       height: 100%;
 
       > li {
-        margin-left: 1.5vw;
+        @include px(margin-left, 40px);
         height: 100%;
         display: flex;
         align-items: center;
         position: relative;
       }
 
-      > li a {
+      > li a:not(.button) {
         line-height: 1.4;
         position: relative;
       }
@@ -227,51 +233,10 @@ ul.nav__child-menu {
     }
 
     @include defer {
-      @include link-underline('> li > a', '> li > a:hover');
+      @include link-underline('> li > a', '> li > a:not(.button):hover');
     }
   }
 
-  ul.nav__child-menu {
-    @include defer {
-      @include px(margin-left, $navDropdownMargin);
-      @include px(padding, 38px 32px);
-      @include px(width, 280px);
-      top: 100%;
-      left: 0px;
-      position: absolute;
-      transform: translateY(-20px);
-
-      li {
-        @include px(margin-bottom, 12px);
-      }
-
-      li > a {
-        padding: 0;
-        display: flex;
-        align-items: center;
-        @include px(gap, 8px);
-      }
-
-      li > a > .arrow {
-        color: $navArrowColor;
-        opacity: 0;
-        transform: translateX(-10px);
-        @include transition(
-          transform 0.3s ease-in-out,
-          opacity 0.3s ease-in-out
-        );
-      }
-
-      li > a:hover > .arrow {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      li:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
 
   ul.nav__list {
     @include critical {
@@ -284,31 +249,6 @@ ul.nav__child-menu {
           left: auto;
         }
       }
-    }
-  }
-
-  ul.nav__grandchild-menu {
-    @include defer {
-      @include px(padding-top, 10px);
-      @include px(padding-left, 20px);
-      list-style: none;
-
-      a {
-        font-weight: $baseFontWeight;
-      }
-    }
-  }
-
-  li.nav__has-children:hover ul.nav__child-menu,
-  li.nav__has-children:focus ul.nav__child-menu,
-  li.nav__has-children > *:hover ~ ul.nav__child-menu,
-  li.nav__has-children > *:focus ~ ul.nav__child-menu,
-  li.nav__has-children.active ul.nav__child-menu {
-    @include defer {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      z-index: 130;
     }
   }
 }
@@ -336,6 +276,7 @@ ul.nav__child-menu {
       left: 0;
       display: block;
       position: fixed;
+      background-color: $brandDarkGrey;
 
       a {
         display: block;
@@ -399,11 +340,12 @@ ul.nav__child-menu {
       overflow: auto;
       -webkit-transform: scale(0.9);
       transform: scale(0.9);
+      @include px(padding-top, 60px);
 
       > li {
         margin: 0;
         padding: 0;
-        @include px(margin-bottom, 12px);
+        @include px(margin-bottom, 20px);
         width: 100%;
         line-height: 1.3;
         display: flex;
@@ -436,124 +378,6 @@ ul.nav__child-menu {
       color: $mobileNavArrowColor;
       background-color: transparent;
       border: 0;
-    }
-  }
-
-  ul.nav__child-menu {
-    @include defer {
-      margin-right: auto;
-      margin-left: auto;
-      @include px(padding-left, $mobileNavSubPadding);
-      width: 100%;
-      max-width: 100%;
-      height: 0;
-      position: relative;
-      overflow: hidden;
-      background-color: transparent;
-
-      li {
-        @include px(font-size, 18px);
-
-        .label {
-          @include px(padding, 5px 0);
-          display: block;
-        }
-      }
-
-      > li,
-      > li > a {
-        padding: 0;
-        display: block;
-      }
-
-      > li > a > .arrow {
-        display: none;
-      }
-
-      > li:first-child > a {
-        padding-top: 0;
-      }
-
-      > li:first-child {
-        @include px(padding-top, 12px);
-      }
-
-      > li:last-child {
-        @include px(padding-bottom, 12px);
-      }
-
-      &::before {
-        content: '';
-        @include px(width, 2px);
-        height: calc(100% - 40px);
-        @include px(top, 20px);
-        @include px(left, 14px);
-        display: block;
-        position: absolute;
-        background-color: $mobileNavSubMenuLine;
-        opacity: 0.1;
-        z-index: -1;
-      }
-    }
-  }
-
-  ul.nav__grandchild-menu {
-    @include defer {
-      list-style: none;
-      font-weight: normal;
-      @include px(padding, 0px);
-
-      > li {
-        @include px(padding, 4px 20px);
-      }
-
-      a {
-        font-weight: $baseFontWeight;
-      }
-    }
-  }
-
-  li.nav__has-grandchildren,
-  li.nav__has-children,
-  .is-sticky li.nav__has-children,
-  .is-sticky li.nav__has-grandchildren {
-    @include defer {
-      position: relative;
-    }
-  }
-
-  ul.nav__list > li.nav__has-children.active {
-    @include defer {
-      > a:not(.button) {
-        color: $colorText;
-      }
-    }
-  }
-
-  li.nav__has-children.active > ul.nav__child-menu {
-    @include defer {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      @include px(gap, 4px);
-      opacity: 1;
-      visibility: visible;
-      overflow: visible;
-      z-index: 130;
-    }
-  }
-
-  .nav__company-info {
-    @include defer {
-      width: 100%;
-
-      .footer__info {
-        @include px(gap, $mobileNavSubPadding - 24px);
-
-        svg {
-          color: $navFontPrefixColor;
-        }
-      }
     }
   }
 

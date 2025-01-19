@@ -1,0 +1,37 @@
+@@include('includes/header.html', {
+    "pageTitle": "Google Form | Jenn-Do 2025"
+})
+
+<!-- 
+    --black: #080b13;
+    --white: #FFFFFF;
+    --tan: #94624f;
+    --grey: #666666;
+    --midgrey: #333;
+    --darkgrey: #1a1e28;
+
+-->
+
+@@include('includes/nav.html')
+
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+
+        <main class="JennDo__page" style="padding-top: 10rem">
+
+            @@include('modules/fullwidth.html', {
+                "h" : "h1",
+                "title" : "We have questions ...",
+                "copy" : "<p>Travel arrangements, allergies, a hatred of mushrooms.  Please fill in the form below to help us finalise some bits and pieces and ensure everyone is looked after.</p>",
+                "buttons" : "",
+                "theme" : ""
+            })
+
+            @@include('modules/html-embed.html')
+
+        </main><!-- .Wrapper -->
+        @@include('includes/footer.html')
+    </div>
+</div>
+
+@@include('includes/footer-includes.html')

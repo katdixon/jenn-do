@@ -19,10 +19,10 @@
                     </div>
                 }
 
-                @@if(buttons.length){
+                @@if(buttons != ""){
                     <div class="button__container">
                         @@for (var i = 0; i < buttons.length; i++) {
-                            <a class="button" href="/">`+buttons[i]+`</a>
+                            <a class="button" target="`+buttons[i].target +`" href="`+buttons[i].url+`">`+buttons[i].text +`</a>
                         }
                     </div>
                 }
@@ -37,12 +37,12 @@
                                 "mobile" : "/assets/img/@@imagemobile"
                             },
                             "width" : "700",
-                            "height" : "560",
+                            "height" : "700",
                             "breakpoint" : "730",
                             "pictureclass" : "",
                             "imgclass" : "u-objectFit",
                             "breakpoint" : "",
-                            "sizes" : "700x560, 700x560"
+                            "sizes" : "700x700, 700x700"
                         })
                 </div>
             </div>

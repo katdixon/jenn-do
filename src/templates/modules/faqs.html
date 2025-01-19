@@ -1,8 +1,6 @@
 <!------ START FULL WIDTH COPY ------>
 <section class="module fullwidth module__background theme__background--@@theme  @@alignment" style="--headingColour:  var(--white); --textColour: var(--white)">
-
     <div class="column column--narrow">
-
         @@if(title){
             <@@h class="module__heading u-h2">@@title</@@h>
         }
@@ -12,21 +10,17 @@
             @@if(copy){
                 @@copy
             }
-
-            @@if(copy == ""){
-                @@include('../includes/wysiwig.html')
-            }
-
         </div>
 
-        @@if(buttons != ""){
-            <div class="button__container">
-        
-            @@for (var i = 0; i < buttons.length; i++) {
-                <a class="button" href="/">`+buttons[i]+`</a>
+
+        <div class="faqs">
+            @@for (var i = 0; i < questions.length; i++) {
+                <div class="faq__item">
+                    <h3 class="faq__question module__heading u-h3">`+questions[i].question+`</h3>
+                    <div class="faq__answer">`+questions[i].answer+`</div>
+                </div>
             }
-            </div>
-        }
+        </div>
     </div>
 
 </section>

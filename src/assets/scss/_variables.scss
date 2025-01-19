@@ -5,7 +5,7 @@ $uiBlack: #080b13;
 $uiWhite: #ffffff;
 
 $brandTan: #94624f;
-$brandGrey: #888;
+$brandGrey: #aaa;
 $brandMidGrey: #333333;
 $brandDarkGrey: #1a1e28;
 
@@ -17,7 +17,7 @@ $colorTextInverse: #333;
    --black: #080b13;
    --white: #FFFFFF;
    --tan: #94624f;
-   --grey: #888;
+   --grey: #aaa;
    --midgrey: #333;
    --darkgrey: #1a1e28;
 }
@@ -63,12 +63,12 @@ $formInputBG: $uiWhite;
 ========================================================================== */
 
 $headerBackground: transparent;
-$headerBackgroundScrolled: rgba(255, 255, 255, 0.6);
+$headerBackgroundScrolled: rgba(8,11,19, 0.6);
 
-$navFontSize: 20px;
-$navFontColor: $colorText;
+$navFontSize: 18px;
+$navFontColor: $uiWhite;
 $navFontPrefixColor: $brandTan;
-$navArrowColor: $brandGrey;
+$navArrowColor: $brandTan;
 
 $navDropdownMargin: -25px;
 $navDropdownFontSize: 16px;
@@ -95,7 +95,7 @@ $mobileNavSubPadding: 36px;
 ========================================================================== */
 
 $baseFontFamily: 'Nunito Sans', Arial, sans-serif !default;
-$baseFontWeight: 500;
+$baseFontWeight: 400;
 $baseBoldWeight: 700;
 
 $headingFontFamily:  'Uncial Antiqua', "Times New Roman", serif !default;
@@ -113,9 +113,9 @@ $largeBodyCopy: 35px;
 $preHeaderSize: 16px;
 
 $headingH1: 130px;
-$headingH2: 70px;
-$headingH3: 50px;
-$headingH4: 40px;
+$headingH2: 60px;
+$headingH3: 40px;
+$headingH4: 30px;
 $headingH5: 25px;
 
 $baseFontSize_mobile: 16px;
@@ -128,8 +128,8 @@ $preHeaderSize_mobile: 14px;
 
 $headingH1_mobile: 70px;
 $headingH2_mobile: 44px;
-$headingH3_mobile: 37px;
-$headingH4_mobile: 25px;
+$headingH3_mobile: 30px;
+$headingH4_mobile: 20px;
 $headingH5_mobile: 16px;
 
 $headerFontSize: 14px;
@@ -144,7 +144,7 @@ $footerFontSize: 12px;
 
 $buttonBorderSize: 2px;
 $buttonBorderRadius: 0px;
-$buttonFontWeight: 400;
+$buttonFontWeight: 600;
 $buttonFontSize: 18px;
 $buttonFontSize_mobile: 16px;
 $buttonTextTranform: unset;
@@ -160,9 +160,9 @@ $buttonBorderColor_hover: $brandTan;
 
 $buttonInverseBackground: $brandTan;
 $buttonInverseTextColor: $uiWhite;
-$buttonInverseBorderColor: $uiWhite;
-$buttonInverseBackground_hover: $brandDarkGrey;
-$buttonInverseTextColor_hover: $uiWhite;
+$buttonInverseBorderColor: $brandTan;
+$buttonInverseBackground_hover: $uiWhite;
+$buttonInverseTextColor_hover: $brandMidGrey;
 $buttonInverseBorderColor_hover: $uiWhite;
 
 /* Structure - Breakpoints

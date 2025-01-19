@@ -1,0 +1,23 @@
+/* Component
+   ========================================================================== */
+
+.faqs{
+    @include critical{
+        @include px(margin-top, 60px);
+      }
+}
+
+.faq__item {
+    @include critical{
+      text-align: left;
+      @include px(margin-bottom, 60px);
+    }
+}
+  
+
+.faq__question {
+    @include critical{
+        border-bottom: 1px solid $brandTan;
+    }
+}
+  
