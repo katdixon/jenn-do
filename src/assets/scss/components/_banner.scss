@@ -12,10 +12,9 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      margin-bottom: 0;
   
       @include px(min-height, 550px);
-  
+      @include px(margin-bottom, 40px);
       color: $uiWhite;
   
       h1,

@@ -1,0 +1,53 @@
+/* Component
+   ========================================================================== */
+
+
+$gap: 50px;
+
+.grid{
+    @include critical{
+        @include mq(desktop){
+            display: flex;
+            flex-wrap: wrap;
+            @include px(gap, $gap);
+        }
+    }
+}
+
+.grid__item {
+    @include critical{
+        @include px(padding, $gap);
+        position: relative;
+        overflow: hidden;
+        min-height: 20vw;
+
+        ul{
+            padding:0;
+            @include px(margin, 0 0 0 20px);
+        }
+
+        @include mq(desktop){
+            width: calc(33.3% - $gap);
+            flex-grow: 1;
+
+            &:nth-child(1){
+                width: calc(60% - ($gap * 0.5));
+            }
+
+            &:nth-child(2){
+                width: calc(40% - ($gap * 0.5));
+            }
+        }
+    }
+
+    @include defer{
+        &:nth-child(1){
+            ::-moz-selection {
+                background: rgba($brandDarkGrey, 0.6) !important;
+            }
+            ::selection {
+            background: rgba($brandDarkGrey, 0.6) !important;
+            }
+        }
+    }
+}

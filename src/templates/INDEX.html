@@ -35,8 +35,11 @@
                 "copy" : "<p>It's happening!! Our magical, hilarous and illegally beautiful Jenn has found someone as weird and wonderful as her. So it's time to get together and have a jolly good celebration. </p>",
                 "buttons" : "",
                 "theme" : "",
-                "alignment": " fullwidth--center"
+                "alignment": " fullwidth--center",
+                "hclass" : "u-h2"
             })
+
+            @@include('modules/divider.html')
 
 
             <div id="#where"></div>
@@ -44,8 +47,47 @@
                 "imagefirst" : "right",
                 "preheader" : "",
                 "title" : "Where are we going?",
-                "copy" : "<p>We've booked a lovely Medieval Airbnb in Caldicot for a few days of merriment & celebration of Jenn!</p><p><strong>House features</strong></p><ul><li>8 person solid hot tub</li><li>Covered outdoor bar / seating area</li><li>A castle across the road</li><li>A pub 200m away</li><li>Some beautiful decor and architecture</li><li>Jenn will be there.</li></ul><p><strong>Check in</strong><br>from 5pm on Friday 7th.<br><br><strong>Check out</strong><br> Sunday 9th @ 1pm - so you don't have to rush off!</p>",
+                "copy" : "<p>We've booked an amazing Medieval Airbnb in Caldicot for a few days of merriment & celebration of Jenn!</p><p><strong>Check in</strong><br>from 5pm on Friday 7th.<br><br><strong>Check out</strong><br> Sunday 9th @ 1pm - so you don't have to rush off!</p>",
                 "buttons" : [{ "target": "_blank", "text": "Airbnb", "url" : "https://www.airbnb.co.uk/rooms/16531020"}], 
+                "headingColour" : "white",
+                "textColour" : "grey",
+                "bg" : "darkgrey",
+                "image" : "/house/house.jpeg",
+                "imagemobile" : "/house/house.jpeg"
+            })
+
+            @@include('modules/fullwidth.html', {
+                "h" : "h3",
+                "title" : "About the house",
+                "copy" : "<ul><li>The oldest house in Wales (apparently!)</li><li>8 person solid hot tub</li><li>Covered outdoor bar / seating area</li><li>A castle across the road</li><li>A pub 200m away</li><li>Some beautiful decor and architecture</li><li>Jenn will be there.</li></ul>",
+                "buttons" : "",
+                "theme" : "",
+                "alignment": " ",
+                "hclass" : "u-h3"
+            })
+
+            @@include('modules/fifty-fifty/fifty-fifty.html', {
+                "imagefirst" : "left",
+                "preheader" : "",
+                "title" : "Getting there",
+                "copy" : "<p><strong>Address</strong><br>Llanthony Secunda Manor<br>Church Road<br>Caldicot<br>Wales NP26 4HT</p><p>There's onsite parking for 10 cars, and if anyone is able to/wants to car share it would be great; mention this in the <a href='/form.html'>Google Form</a> and we can organise. Caldicot is the nearest station (about an 20min walk) and we can pick you up from there if train travel is your preference!</p>",
+                "buttons" : [{ "target": "_blank", "text" : "Get Directions", "url" : "https://www.google.com/maps/dir//Llanthony+Secunda+Manor+House,+Church+Rd,+Caldicot+NP26+4HT/@51.5964827,-2.7479919,17.31z/data=!4m17!1m7!3m6!1s0x4871eb0e4dfe4b97:0x46ec783636bea54e!2sLlanthony+Secunda+Manor+House!8m2!3d51.5957167!4d-2.7480686!16s%2Fg%2F1ptw135x0!4m8!1m0!1m5!1m1!1s0x4871eb0e4dfe4b97:0x46ec783636bea54e!2m2!1d-2.7480686!2d51.5957167!3e3?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" }],
+                "headingColour" : "midgrey",
+                "textColour" : "midgrey",
+                "bg" : "white",
+                "image" : "/house/castle.jpeg",
+                "imagemobile" : "/house/castle.jpeg"
+            })
+
+            @@include('modules/divider.html')
+
+            <div id="#what"></div>
+            @@include('modules/fifty-fifty/fifty-fifty.html', {
+                "imagefirst" : "right",
+                "preheader" : "Tell us more!",
+                "title" : "What are we doing?",
+                "copy" : "<p>There is nothing too strenuous or anything that you would need to sign a waiver for planned for this weekend, but there will be lots going on! Plenty of eating, sleepover vibes, general feel-good scenarios, lots of appreciation for the bride, games and crafty times. We hope that you’ll be left feeling full of joy, surrounded by love and inspired. ✨ 🧡</p><p>We have sorted food for everyone and Saturday lunchtime where we will be eating out - it’ll need to be pre-ordered and we will send a menu around shortly for you to pick from. This is included in the total price you’re paying so you don’t need to worry about an additional cost, but we do ask that any drinks will be purchased yourselves at the bar.</p>",
+                "buttons" : "",
                 "headingColour" : "white",
                 "textColour" : "grey",
                 "bg" : "darkgrey",
@@ -53,34 +95,53 @@
                 "imagemobile" : "80sjenn.jpeg"
             })
 
-            @@include('modules/fifty-fifty/fifty-fifty.html', {
-                "imagefirst" : "left",
-                "preheader" : "",
-                "title" : "Getting there",
-                "copy" : "<p><strong>Address</strong><br>Llanthony Secunda Manor<br>Church Road<br>Caldicot<br>Wales NP26 4HT</p><p>If anyone is able to/wants to car share it would be great; mention this in the <a href='/form.html'>Google Form</a> and we can organise. Caldicot is the nearest station (about an 20min walk) and we can pick you up from there is train travel is your preference!</p>",
-                "buttons" : [{ "target": "_blank", "text" : "Get Directions", "url" : "https://www.google.com/maps/dir//Llanthony+Secunda+Manor+House,+Church+Rd,+Caldicot+NP26+4HT/@51.5964827,-2.7479919,17.31z/data=!4m17!1m7!3m6!1s0x4871eb0e4dfe4b97:0x46ec783636bea54e!2sLlanthony+Secunda+Manor+House!8m2!3d51.5957167!4d-2.7480686!16s%2Fg%2F1ptw135x0!4m8!1m0!1m5!1m1!1s0x4871eb0e4dfe4b97:0x46ec783636bea54e!2m2!1d-2.7480686!2d51.5957167!3e3?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" }],
-                "headingColour" : "midgrey",
-                "textColour" : "midgrey",
-                "bg" : "white",
-                "image" : "80sjenn.jpeg",
-                "imagemobile" : "80sjenn.jpeg"
-            })
+            @@include('modules/divider.html')
 
-            <div id="#what"></div>
-            @@include('modules/fifty-fifty/fifty-fifty.html', {
-                "imagefirst" : "right",
-                "preheader" : "Tell us more!",
-                "title" : "What are we doing?",
-                "copy" : "<p>There is nothing strenuous or anything that you would need to sign a waiver for planned for this weekend, but there will be lots going on! Plenty of eating, sleepover vibes, general feel-good scenarios, lots of appreciation for the bride, games and crafty times. We hope that you’ll be left feeling full of joy, surrounded by love and inspired. ✨ 🧡</p>",
-                "buttons" : "",
-                "headingColour" : "midgrey",
-                "textColour" : "midgrey",
-                "bg" : "white",
-                "image" : "80sjenn.jpeg",
-                "imagemobile" : "80sjenn.jpeg"
-            })
             <div id="#to-bring"></div>
 
+            <section class="module">
+                <div class="column">
+                    <div class="grid">
+                        <div class="grid__item module__background"  style="--bgColour:  var(--tan); --headingColour:  var(--white); --textColour: var(--white)">
+                            <h2 class="module__heading u-h3">What to bring</h2>
+                            <div class="module__text">
+                                <ul>
+                                    <li>2m ribbon/cord of your choosing, 2m in length and up 5cm wide. We will be using this to make something for the bride, so if there is a little extra special trinket/personal item you want to include then bring that along, but it will need to be small and easy to attach to ribbon.</li>
+                                    <li>If you have them, crystals that can be put into table decor (you will take these back home with you, don’t worry!) or something that makes you think of Jenn.</li>
+                                    <li>Shoes that can get muddy (don't worry, we won't be climbing any mountains!)</li>
+                                    <li>A glorious witchy outfit/that outfit that has been in the back of your wardrobe that you really want to wear, and don’t mind potentially getting muddy!</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid__item module__background"  style="--bgColour:  var(--white); --headingColour:  var(--midgrey); --textColour: var(--midgrey)">
+                           
+                            <img src="/assets/img/bring/ribbons2.jpg" alt="ribbons" class="u-objectFit">
+                        </div>
+                        <div class="grid__item module__background"  style="--bgColour:  var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
+                            <img src="/assets/img/bring/witchy.jpg" alt="outfit ideas" class="u-objectFit">
+                            <div class="grid__caption module__text">
+                                <p>Think celtic or pagan witch inspired ... floaty material, moons, crystals, whatever you fancy really  🖤</p>
+                            </div>
+                        </div>
+                        <div class="grid__item module__background"  style="--bgColour:  var(--white); --headingColour:  var(--midgrey); --textColour: var(--midgrey)">
+
+                            <div class="module__text">
+                                <ul>
+                                    <li>We will bring bubbles & non-alcoholic bubbles for everyone to have a glass, but please bring whatever else you might want - this is to keep it fair for cost splitting. There will be tea, coffee, squash and pop for everyone, but any other beverages you’ll need to bring along. There are supermarkets nearby that can always be popped to!</li>
+                                    <li>There is a hot tub, so bring some swimmers and a towel (or don’t - you be you)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid__item module__background"  style="--bgColour:  var(--darkgrey); --headingColour:  var(--white); --textColour: var(--grey)">
+                            <img src="/assets/img/bring/crystals2.jpg" alt="crystals" class="u-objectFit">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            @@include('modules/divider.html')
 
             <div id="#faq"></div>
             @@include('modules/faqs.html', {
@@ -88,13 +149,16 @@
                 "title" : "FAQs",
                 "copy" : "<p>Some things you might wanna know...</p>",
                 "questions" : [
-                    { "question": "What are the sleeping arrangements?", "answer" : "It will be shared rooms, and a mix of shared beds and singles (sleepover style!) and floor mattresses too - the rooms are massive! We appreciate not everyone has oodles of cash and we wanted to make sure as many of Jenn's faves could afford to come as possible, but if anyone is opposed to sharing a bed or has dibs on who they want to share with, just drop one of us a message and we will accommodate as much as we can - no judgements here - and we promise we'll do what we can (without remodelling the house)." },
+                    { "question": "What are the sleeping arrangements?", "answer" : "<p>It will be shared rooms, and a mix of shared beds and singles, and some floor mattresses too (sleepover style!) the rooms are massive! We appreciate not everyone has oodles of cash, Jenn has so many friends, and we wanted to make sure as many of her faves could afford to come as possible, but if anyone is opposed to sharing a bed or has dibs on who they want to share with, just drop one of us a message and we will accommodate as much as we can - no judgements here - and we promise we'll do what we can (without remodelling the house).</p>" },
                     { "question": "Can you remind me of costs?", "answer" : "<p>The cost per hen is £250 - this includes covering Jenn. This covers:</p><ul><li>2 night stay</li><li>a (simple) breakfast both days</li><li>dinner the first night</li><li>pub lunch on Saturday</li><li>a welcome glass of bubbly (boozy or alcohol-free)</li><li>planned activities</li></ul><p>Please bring anything else you want to drink at the house, and get your own drinks from the bar at the pub.</p><p>If we end up coming in under the £250 the extra monies will ofc be refunded to you.</p>" },
-                    { "question": "I can't come anymore, can I have my money back?", "answer" : "That really sucks, but unfortunately if you confirm that you are coming and then cancel we won’t be able to refund you. By saying you will be there will affect how much we spend and what we do. Obviously we completely appreciate that things happen and changes might occur, but it will impact everyone else who attends. We really hope that you understand!</p>" },
+                    { "question": "I can't come anymore, can I have my money back?", "answer" : "<p>That really sucks, but unfortunately if you confirm that you are coming and then cancel we won’t be able to refund you. By saying you will be there will affect how much we spend and what we do. Obviously we completely appreciate that things happen and changes might occur, but it will impact everyone else who attends. We really hope that you understand!</p>" },
+                    { "question": "What if I forget to bring something?", "answer" : "<p>Not a problem! There's shops and supermarkets nearby.</p>" }
                 ],
                 "theme" : "",
                 "alignment": " fullwidth--center"
             })
+
+            @@include('modules/divider.html')
 
         </main><!-- .Wrapper -->
         @@include('includes/footer.html')

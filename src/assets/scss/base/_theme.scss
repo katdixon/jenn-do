@@ -72,9 +72,12 @@
   }
 }
 
-.module__text > p{
-  @include critical {
-    color: var(--textColour);
+.module__text{
+
+  > p, > ul, > ol{
+    @include critical {
+      color: var(--textColour);
+    }
   }
 }
 

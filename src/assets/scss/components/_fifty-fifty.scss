@@ -38,8 +38,8 @@ $fifty-fifty-corner-radius-mobile: 120px;
     position: relative;
     display: block;
     z-index: 10;
-    opacity: 0.8;
-    filter:saturate(0.5);
+    opacity: 0.7;
+    //filter:saturate(0.5);
 
     @include mq(desktop){
       @include px(margin-top, 100px);
@@ -50,7 +50,7 @@ $fifty-fifty-corner-radius-mobile: 120px;
       position: relative;
       content: '';
       display: block;
-      padding-top: 100%;
+      padding-top:80%;
     }
   }
 }
@@ -66,7 +66,7 @@ $fifty-fifty-corner-radius-mobile: 120px;
     left: 0;
 
     @include mq(desktop) {
-      width: calc(100% + 50px);
+      width: calc(100% - 50px);
     }
   }
 }

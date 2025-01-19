@@ -45,25 +45,11 @@ body {
       @include transition(background-color 0.4s ease-in-out);
     }
 
-    &.header--glassmorphic:before {
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      mask-image: linear-gradient(black, hsla(0, 0%, 0%, 0.6) 80%, transparent);
-      -webkit-mask-image: linear-gradient(
-        black,
-        hsla(0, 0%, 0%, 0.6) 80%,
-        transparent
-      );
-      height: 120%;
-    }
-
     &.header--sticky {
       position: sticky;
     }
 
     &.header--scrolled:before {
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
       background-color: $headerBackgroundScrolled;
       mask-image: none;
       height: 100%;
