@@ -15,10 +15,22 @@
         height: 105vh;
         background-color: $uiBlack;
         z-index: -1;
-        @include px(padding, 20px);
+        @include px(padding, 20px 60px);
         text-align: center;
 
-        * {
+
+        label{
+            width: 100%;
+            @include px(max-width, 600px);
+            margin-left: auto;
+            margin-right: auto;
+
+            &:first-child{
+                margin-bottom:  50px !important;
+            }
+        }
+
+        form > * {
             display: block;
             margin: 20px auto;
         }

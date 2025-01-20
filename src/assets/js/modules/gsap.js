@@ -13,9 +13,6 @@ JennDo.gsap = (function () {
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
     window.addEventListener('resize', resizefunc);
 
-
-    console.log(isMobile);
-
     if (!isMobile) {
       createSmoothScroll();
     }
