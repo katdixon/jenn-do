@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 <!--[if IE 9]><html class="lt-ie10 no-js" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js u-showoverlay" lang="en"><!--<![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js " lang="en"><!--<![endif]-->
 <head> 
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +27,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/critical.min.css">  
+
+    <script>
+        (function() {
+            var html = document.getElementsByTagName('html')[0];
+            html.classList.remove('no-js');
+            html.classList.add('js');
+        })();
+    </script>
 </head>
 
 <body>

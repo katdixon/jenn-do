@@ -7,17 +7,12 @@
 /* Component
    ========================================================================== */
 
-body {
-  @include critical {
-    width: 100%;
-    overflow-x: hidden;
-  }
-}
 
 .header {
   @include critical {
     padding: 0;
     width: 100%;
+    max-width: 100vw;
     top: 0;
     position: fixed;
     background-color: $headerBackground;

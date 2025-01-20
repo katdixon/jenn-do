@@ -10,6 +10,7 @@
 .flex {
   @include critical {
     width: 100%;
+    max-width: 100vw;
     position: relative;
     overflow: hidden;
 
