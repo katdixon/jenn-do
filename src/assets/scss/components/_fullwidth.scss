@@ -114,11 +114,48 @@
   }
 
   @include defer{
+    img{
+
+      
+      animation: keeprotating 8s infinite forwards ease-in-out;
+    }
+      @keyframes keeprotating {
+        0% {
+          transform: rotate(-40deg);
+        }
+        1% {
+          transform: rotate(10deg) scale(1.2);
+        }  
+        2% {
+          transform: rotate(-40deg);
+        }
+        3% {
+          transform: rotate(10deg) scale(1.2);
+        }
+        4% {
+          transform: rotate(-40deg);
+        }
+        5% {
+          transform: rotate(10deg) scale(1.2);
+        }  
+        6% {
+          transform: rotate(-40deg);
+        }
+        7% {
+          transform: rotate(10deg) scale(1.2);
+        }
+        8% {
+          transform: rotate(0deg) scale(1);
+        }
+      }
+      
+
+
     img:hover{
       animation: rotate 0.13s infinite alternate ease-in-out;
-        }
+    }
 
-        @keyframes rotate {
+    @keyframes rotate {
       from {
         transform: rotate(-40deg);
       }

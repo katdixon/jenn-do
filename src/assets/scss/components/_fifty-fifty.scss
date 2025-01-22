@@ -43,9 +43,7 @@ $fifty-fifty-corner-radius-mobile: 120px;
 
 
     @include mq(0, desktop){
-      @include px(margin-top, ($gridGutterMobile + 20px));
-      @include px(margin-left, $gridGutterMobile);
-      @include px(margin-right, $gridGutterMobile);
+      @include px(margin-top, ($gridGutterMobile));
     }
 
     @include mq(desktop){

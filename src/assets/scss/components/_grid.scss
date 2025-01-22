@@ -2,14 +2,16 @@
    ========================================================================== */
 
 
-$gap: 50px;
+$gap: $gridGutterMobile;
+$gapDesktop: 50px;
 
 .grid{
     @include critical{
+
         @include mq(desktop){
             display: flex;
             flex-wrap: wrap;
-            @include px(gap, $gap);
+            @include px(gap, $gapDesktop);
         }
     }
 }
@@ -19,6 +21,11 @@ $gap: 50px;
         @include px(padding, $gap);
         position: relative;
         overflow: hidden;
+
+
+        @include mq(desktop){
+            @include px(padding, $gridGutter);
+        }
 
 
         ul{
@@ -31,19 +38,18 @@ $gap: 50px;
 
             @include px(margin-bottom, $gap);
             &--has-image{
-                min-height: 80vw;
+                min-height: 70vw;
             }            
             
         }
 
         @include mq(desktop){
-            min-height: 20vw;
-            width: calc(33.3% - $gap);
+            width: calc(33.3% - $gapDesktop);
             flex-grow: 1;
             min-height: 30vw;
 
             &:nth-child(1){
-                width: calc(60% - ($gap * 0.5));
+                width: calc(60% - ($gapDesktop * 0.5));
                 order:1;
             }
 
@@ -54,7 +60,7 @@ $gap: 50px;
 
             &:nth-child(3){
                 order:2;
-                width: calc(40% - ($gap * 0.5));
+                width: calc(40% - ($gapDesktop * 0.5));
             }
 
             &:nth-child(4){
@@ -74,6 +80,90 @@ $gap: 50px;
             ::selection {
             background: rgba($brandDarkGrey, 0.6) !important;
             }
+        }
+    }
+}
+
+
+
+.grid--whattobring{
+
+
+    @include critical{
+
+        ul{
+            list-style: none;
+            @include px(margin-left, 30px);
+        }
+       
+
+        .grid__item li{
+            position: relative;
+            padding: 0;
+
+            &::before {
+                position: absolute;
+                @include px(left, -28px);
+                @include px (top, 0px);
+                text-shadow: 0px 0px 1px rgba(0,0,0, 0.5);
+                @include px(font-size, 18px);
+            }
+        }
+
+        .grid__item:nth-child(1){
+
+            li:nth-child(1)::before {
+                content: "🎀";
+            }
+
+            li:nth-child(2)::before {
+                content: "💎";
+            }
+
+            li:nth-child(3)::before {
+                content: "👟";
+            }
+
+            li:nth-child(4)::before {
+                content: "👗";
+            }
+        } 
+        
+        .grid__item:nth-child(2){
+
+            li:nth-child(1)::before {
+                content: "🥂";
+            }
+
+            li:nth-child(2)::before {
+                content: "👙";
+            }
+        } 
+     
+
+        
+        @include mq(0, desktop){
+ 
+    
+            .grid__item li{
+                @include px(margin-bottom, 20px);
+            }
+    
+            .grid__item:nth-child(1){
+                margin-bottom: 0;
+                padding-bottom: 0;
+    
+            } 
+            
+            .grid__item:nth-child(2){
+                --bgColour:  var(--tan) !important; 
+                --headingColour:  var(--white) !important; 
+                --textColour: var(--white) !important; 
+                padding-top: 0;
+                @include px(margin-top, -1px);
+
+            } 
+            
         }
     }
 }

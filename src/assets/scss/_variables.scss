@@ -31,17 +31,14 @@ $uiSuccess: #46b24b;
 $uiInfo: #4b6ebc;
 $colorHR: #cccccc;
 
+$gridGutter: 60px;
+$gridGutterMobile: 30px;
+$gridMaxWidth: 1350px + (2 * $gridGutter);
 
-/* Structure - Breakpoints
-   ========================================================================== */
+$gridMaxWidthMid: 1100px + (2 * $gridGutter);
+$gridMaxWidthNarrow: 920px + (2 * $gridGutter);
+$gridMaxWidthNarrowArticle: 850px + (2 * $gridGutter);
 
-$gridGutter: 80px;
-$gridGutterMobile: 40px;
-$gridMaxWidth: 1350px+ (2 * $gridGutter);
-
-$gridMaxWidthMid: 1100px+ (2 * $gridGutter);
-$gridMaxWidthNarrow: 920px+ (2 * $gridGutter);
-$gridMaxWidthNarrowArticle: 850px+ (2 * $gridGutter);
 
 $navBreak: 1060px;
 
@@ -58,6 +55,9 @@ $linkVisited: $colorText;
 
 $borderRadius: 5px;
 $formInputBG: $uiWhite;
+
+
+
 
 /* Header
 ========================================================================== */
@@ -168,13 +168,6 @@ $buttonInverseBorderColor_hover: $uiWhite;
 /* Structure - Breakpoints
    ========================================================================== */
 
-$gridGutter: 60px;
-$gridGutterMobile: 20px;
-$gridMaxWidth: 1350px + (2 * $gridGutter);
-
-$gridMaxWidthMid: 1100px + (2 * $gridGutter);
-$gridMaxWidthNarrow: 920px + (2 * $gridGutter);
-$gridMaxWidthNarrowArticle: 850px + (2 * $gridGutter);
 
 $breakpoints: (
   mobile: 420,
