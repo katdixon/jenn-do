@@ -127,6 +127,10 @@ $gapDesktop: 50px;
             li:nth-child(4)::before {
                 content: "👗";
             }
+
+            li:nth-child(5)::before {
+                content: "🕯";
+            }
         } 
         
         .grid__item:nth-child(2){
