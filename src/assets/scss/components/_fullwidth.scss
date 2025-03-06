@@ -86,6 +86,50 @@
 }
 
 
+.itinerary__block{
+  @include critical{
+    @include px(margin-bottom, 50px);
+    @include px(padding, $gridGutterMobile);
+    z-index: 2;
+    position: relative;
+
+    @include mq(desktop){
+        @include px(padding, $gridGutter);
+    }
+
+
+
+    //Desktop and Up
+    @include mq(desktop) {
+      &:first-child{
+        width: 45%;
+        margin-right: auto;
+      }
+
+      &:nth-child(2){
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 10;
+      }
+
+      &:last-child{
+        width: 45%;
+        margin-left: auto;
+      }
+    }
+
+  }
+}
+
+.itinerary__block--tan{
+  .u-preheader, strong{
+    @include critical{
+      color: $brandDarkGrey;
+    }
+  }
+}
+
 
 
 
